@@ -182,14 +182,14 @@ public class Dashboard extends BaseTest {
                 }
                 dashboardPage.ClickDoneButton();
                 Thread.sleep(1000);
-//                dashboardPage.ClickOnTroubleshootButton();
-//                dashboardPage.ClickOnConfirmationButton();
-//                if (!dashboardPage.ValidateTroubleshootReport()) {
-//                    awarenessPage.TakeScreenshotOnSoftAssertion("Soft Assertion - Troubleshoot results is not visible");
-//                    softAssert.fail("Troubleshoot Failed");
-//                }
-//                Thread.sleep(1500);
-//                awarenessPage.ClickCrossButtonLevel1();
+               dashboardPage.ClickOnTroubleshootButton();
+               dashboardPage.ClickOnConfirmationButton();
+               if (!dashboardPage.ValidateTroubleshootReport()) {
+                   awarenessPage.TakeScreenshotOnSoftAssertion("Soft Assertion - Troubleshoot results is not visible");
+                   softAssert.fail("Troubleshoot Failed");
+               }
+               Thread.sleep(1500);
+               awarenessPage.ClickCrossButtonLevel1();
                 dashboardPage.ClickOnCompactView();
                 dashboardPage.ClickOnCampaignEditButton();
                 if (!dashboardPage.ValidateEditPageVisibility()) {
@@ -242,9 +242,9 @@ public class Dashboard extends BaseTest {
                 dashboardPage.ClickOnCategoriesTab();
                 dashboardPage.ClickOnPerformanceTableDownloadButton();
                 dashboardPage.ClickOnKeywordsTab();
-                // dashboardPage.ClickOnPerformanceTableDownloadButton();
-                // dashboardPage.CountingPerformanceTableHeadingsBeforeDeselectingTableAttribute();
-                // dashboardPage.ClickOnTableAddOrRemoveColumns();
+                dashboardPage.ClickOnPerformanceTableDownloadButton();
+                dashboardPage.CountingPerformanceTableHeadingsBeforeDeselectingTableAttribute();
+                dashboardPage.ClickOnTableAddOrRemoveColumns();
                 dashboardPage.DeselectingSelectedTableAttributes(1);
                 dashboardPage.ClickOnTableAddOrRemoveColumns();
                 if (!dashboardPage.ValidatingPerformanceTableHeadingsAfterDeselectingTableAttribute()) {
