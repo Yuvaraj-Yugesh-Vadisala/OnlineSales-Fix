@@ -36,16 +36,22 @@ public class ScheduleReport extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
+
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Started: " + this.getClass().getSimpleName());
+
     }
 
     @BeforeMethod
     public void ResetPage() {
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished: " + this.getClass().getSimpleName());
+
         getDriver().navigate().to(TvingSellerUrl);
 //        Cookie UAToken = new Cookie("UA_TOKEN", "f968ddd03b493e94f7c70fa14e5c43d4");
 //        Cookie Ubid = new Cookie("ubid", "unique12345");
 //        getDriver().manage().addCookie(UAToken);
 //        getDriver().manage().addCookie(Ubid);
 //        getDriver().navigate().refresh();
+
     }
 
     @AfterClass

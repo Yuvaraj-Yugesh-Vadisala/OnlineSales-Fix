@@ -28,7 +28,7 @@ public class CampaignTemplate extends BaseTest {
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
 
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Started: " + this.getClass().getName());
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Started: " + this.getClass().getSimpleName());
 
     }
 
@@ -43,7 +43,7 @@ public class CampaignTemplate extends BaseTest {
 
     @AfterClass
     public void TearDown() {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished: " + this.getClass().getName());
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished: " + this.getClass().getSimpleName());
 
         getDriver().quit();
     }

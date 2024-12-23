@@ -33,13 +33,13 @@ public class OrdersPulse extends BaseTest {
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
 
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Started: " + this.getClass().getName());
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Started: " + this.getClass().getSimpleName());
 
     }
 
     @BeforeMethod
     public void ResetPage() {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished: " + this.getClass().getName());
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished: " + this.getClass().getSimpleName());
         getDriver().navigate().to(PulseUrl);
     }
 

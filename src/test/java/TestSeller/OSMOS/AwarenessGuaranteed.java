@@ -36,7 +36,7 @@ public class AwarenessGuaranteed extends BaseTest {
         dashboardPage.EnterDesiredTextToSellerSearchField("Whitakers");
         dashboardPage.SelectDesiredSeller(1);
 
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting: " + this.getClass().getName());
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting: " + this.getClass().getSimpleName());
 
     }
 
@@ -51,7 +51,7 @@ public class AwarenessGuaranteed extends BaseTest {
 
     @AfterClass
     public void TearDown() {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished: " + this.getClass().getName());
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished: " + this.getClass().getSimpleName());
         getDriver().quit();
     }
 
