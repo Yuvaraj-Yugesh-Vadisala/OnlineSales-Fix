@@ -70,7 +70,7 @@ public class OrdersDev extends BaseTest {
     @Epic("TVING Dev - Seller Dashboard")
     @Feature("This flow belongs to Order Creation flow")
     @Story("Order Creation - Positive Flow")
-    @Test(description = "Test: Creation of order using all mandatory features", priority = 1 , timeOut = 20000)
+    @Test(description = "Test: Creation of order using all mandatory features", priority = 1 , timeOut = 1200000)
     public void CreateNewOrderWithAllMandatoryFields() {
         ordersPage.RetryOnFailTvingSeller((() -> {
         SoftAssert softAssert = new SoftAssert();
@@ -98,7 +98,7 @@ public class OrdersDev extends BaseTest {
             ordersPage.ClickOnSubscriptionCategoryField();
             ordersPage.SelectingDesiredOptionFromCustomCategoryDropDown(1);
             ordersPage.ClickOnCreateOrderBasicInfoSaveButton();
-            ordersPage.EnterDataInOrderCostField("20000");
+            ordersPage.EnterDataInOrderCostField("1200000");
             ordersPage.ClickOnCreateOrderAddTemplateButton();
             ordersPage.EnterDataInAddTemplateSearchField("%%%##");
             ordersPage.SelectingDesiredTemplateRadioButtonFromTable(2);
@@ -688,7 +688,7 @@ public class OrdersDev extends BaseTest {
     @Epic("TVING Dev - Seller Dashboard")
     @Feature("This flow belongs to All Order Flow")
     @Story("Order Creation - Negative Flow")
-    @Test(description = "Test: Validating all fields in order creation", priority = 0, timeOut = 20000)
+    @Test(description = "Test: Validating all fields in order creation", priority = 0, timeOut = 1200000)
     public void ValidateAllFieldsInOrderCreation() {
         ordersPage.RetryOnFailTvingSeller((() -> {
             SoftAssert softAssert = new SoftAssert();

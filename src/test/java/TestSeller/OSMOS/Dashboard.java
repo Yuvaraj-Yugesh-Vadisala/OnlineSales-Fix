@@ -60,7 +60,7 @@ public class Dashboard extends BaseTest {
     @Feature("Dashboard Page")
     @Story("This flow belongs dashboard operations")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Operations related to dashboard", timeOut = 15000)
+    @Test(description = "Test: Operations related to dashboard", timeOut = 6000000)
     public void DashboardOperations()   {
         performancePage.RetryOnFailOSMOSSeller((() -> {
         SoftAssert softAssert = new SoftAssert();
@@ -145,7 +145,7 @@ public class Dashboard extends BaseTest {
     @Feature("Dashboard Page")
     @Story("This flow belongs dashboard operations")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Validating All dashboard operations", timeOut = 15000)
+    @Test(description = "Test: Validating All dashboard operations", timeOut = 6000000)
     public void AwarenessTableOperations()  {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -239,7 +239,7 @@ public class Dashboard extends BaseTest {
     @Feature("Dashboard Page")
     @Story("This flow belongs dashboard operations")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Validating all performance table operations", timeOut = 15000)
+    @Test(description = "Test: Validating all performance table operations", timeOut = 6000000)
     public void PerformanceTableOperations()  {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();

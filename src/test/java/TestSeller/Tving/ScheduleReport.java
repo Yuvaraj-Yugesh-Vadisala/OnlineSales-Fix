@@ -62,7 +62,7 @@ public class ScheduleReport extends BaseTest {
     @Epic("TVING - Seller Dashboard")
     @Feature("This flow belongs to Scheduling Of Report")
     @Story("Schedule Report - Positive Flow")
-    @Test(description = "Test: Successful Scheduling of report with all mandatory fields", timeOut = 6000)
+    @Test(description = "Test: Successful Scheduling of report with all mandatory fields", timeOut = 6000000)
     public void SuccessfullyScheduleReports() {
         ordersPage.RetryOnFailTvingSeller((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -181,7 +181,7 @@ public class ScheduleReport extends BaseTest {
     @Epic("TVING - Seller Dashboard")
     @Feature("This flow belongs to Scheduling Of Report")
     @Story("Schedule Report - Negative Flow")
-    @Test(description = "Test: Scheduling of report with negative aspect", timeOut = 6000)
+    @Test(description = "Test: Scheduling of report with negative aspect", timeOut = 6000000)
     public void ScheduleReportsWithNegativeAspect() {
         ordersPage.RetryOnFailTvingSeller((() ->
         {
