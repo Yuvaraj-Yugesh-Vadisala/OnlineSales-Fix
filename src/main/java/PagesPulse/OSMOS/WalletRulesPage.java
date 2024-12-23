@@ -286,7 +286,7 @@ public class WalletRulesPage {
     @Step("Validating created wallet rule is present in table")
     public boolean ValidatingCreatedWalletRule() {
         String PageName = driver.findElement(PageTableFirstRowPageName).getText();
-        System.out.println(PageName);
+        // System.out.println(PageName);
         return WalletName.equals(PageName);
     }
     @Step("Enter data in the table search field")

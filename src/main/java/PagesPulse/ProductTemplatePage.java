@@ -726,14 +726,14 @@ public class ProductTemplatePage {
                 driver.findElement(ExclusiveContentTableRefreshButton).click();
                 Thread.sleep(1500);
                 String text = driver.findElement(ExclusiveContentProductTemplateTableFirstRow).getText();
-                System.out.println(text);
-                System.out.println(ProductTemplateName);
+                // System.out.println(text);
+                // System.out.println(ProductTemplateName);
                 return text.equals(ProductTemplateName);
             }
 
             String text = driver.findElement(ExclusiveContentProductTemplateTableFirstRow).getText();
-            System.out.println(text);
-            System.out.println(ProductTemplateName);
+            // System.out.println(text);
+            // System.out.println(ProductTemplateName);
             return text.equals(ProductTemplateName);
         } catch (NoSuchElementException | TimeoutException | InterruptedException e) {
             return false;

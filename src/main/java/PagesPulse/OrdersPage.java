@@ -2336,11 +2336,11 @@ public class OrdersPage {
 
                 // Calculate the difference in days between start and end dates
                 int DaysDifference = (int) ChronoUnit.DAYS.between(StartDate, EndDate);
-                System.out.println("Difference in days: " + DaysDifference);
+                // System.out.println("Difference in days: " + DaysDifference);
 
                 // Store the count of editable fields
                 int EditableFieldsCount = driver.findElements(SetDailyBudgetInputField).size();
-                System.out.println("Editable Fields Count: " + EditableFieldsCount);
+                // System.out.println("Editable Fields Count: " + EditableFieldsCount);
 
                 // Check if the difference in days matches the number of editable fields
                 if (EditableFieldsCount == DaysDifference) {

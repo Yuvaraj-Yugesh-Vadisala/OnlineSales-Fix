@@ -333,7 +333,7 @@ public class BuildYourOwnTargetingPage {
         wait.until(ExpectedConditions.elementToBeClickable(KeyNameField));
         driver.findElement(KeyNameField).click();
         String nameValue = driver.switchTo().activeElement().getAttribute("value");
-        System.out.println(nameValue);
+        // System.out.println(nameValue);
         return nameValue.length() > 35;
     }
 
@@ -378,7 +378,7 @@ public class BuildYourOwnTargetingPage {
         wait.until(ExpectedConditions.elementToBeClickable(TargetingNameField));
         driver.findElement(TargetingNameField).click();
         String nameValue = driver.switchTo().activeElement().getAttribute("value");
-        System.out.println(nameValue);
+        // System.out.println(nameValue);
         return nameValue.length() > 50;
     }
 
@@ -387,7 +387,7 @@ public class BuildYourOwnTargetingPage {
         wait.until(ExpectedConditions.elementToBeClickable(TargetingDescriptionField));
         driver.findElement(TargetingDescriptionField).click();
         String nameValue = driver.switchTo().activeElement().getAttribute("value");
-        System.out.println(nameValue);
+        // System.out.println(nameValue);
         return nameValue.length() > 220;
     }
 

@@ -275,7 +275,7 @@ public class ProductAdsYieldControlPage {
         boolean flag = false;
         driver.findElement(DefaultCeilingBidField).click();
         String actualText = driver.findElement(DefaultMultiplierBidField).getText();
-        System.out.println(actualText);
+        // System.out.println(actualText);
         if (actualText.isEmpty()) {
             flag = true;
         }
@@ -326,7 +326,7 @@ public class ProductAdsYieldControlPage {
         driver.findElement(FloorBidExistingValue).click();
         driver.findElement(IndividualFloorBidEditButton).click();
         String actualText = driver.findElement(IndividualActiveField).getAttribute("value");
-        System.out.println(actualText);
+        // System.out.println(actualText);
         if (actualText.contains("-")) {
             flag = false;
         }
@@ -340,7 +340,7 @@ public class ProductAdsYieldControlPage {
         driver.findElement(CeilingBidExistingValue).click();
         driver.findElement(IndividualCeilingBidEditButton).click();
         String actualText = driver.findElement(IndividualActiveField).getAttribute("value");
-        System.out.println(actualText);
+        // System.out.println(actualText);
         if (actualText.contains("-")) {
             flag = false;
         }
@@ -353,7 +353,7 @@ public class ProductAdsYieldControlPage {
         driver.findElement(BidMultiplierExistingValue).click();
         driver.findElement(IndividualBidMultiplierValueField).click();
         String actualText = driver.findElement(IndividualActiveField).getAttribute("value");
-        System.out.println(actualText);
+        // System.out.println(actualText);
         if (actualText.contains("-")) {
             flag = false;
         }

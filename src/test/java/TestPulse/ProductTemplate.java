@@ -4,7 +4,6 @@ import BaseClass.BaseTest;
 import PagesPulse.CampaignTemplatePage;
 import PagesPulse.ProductTemplatePage;
 import io.qameta.allure.*;
-import org.apache.poi.ss.formula.functions.T;
 import org.openqa.selenium.Cookie;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;

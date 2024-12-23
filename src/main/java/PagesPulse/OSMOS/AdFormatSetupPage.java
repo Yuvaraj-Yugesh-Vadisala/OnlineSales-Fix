@@ -179,7 +179,7 @@ public class AdFormatSetupPage {
         wait.until(ExpectedConditions.elementToBeClickable(AdFormatNameField));
         driver.findElement(AdFormatNameField).sendKeys(controlOrCommandKey + "a");
         AdFormatName = RandomString("QATesting", 3, "text");
-        System.out.println(AdFormatName);
+        // System.out.println(AdFormatName);
         driver.findElement(AdFormatNameField).sendKeys(AdFormatName);
     }
 
@@ -605,9 +605,9 @@ public class AdFormatSetupPage {
     @Step("Validating created page is present in table")
     public boolean ValidatingCreatedAdFormat() {
         String PageName = driver.findElement(PageTableFirstRowPageName).getText();
-        System.out.println(AdFormatName);
-        System.out.println(PageName);
-        System.out.println(AdFormatName.toString().equals(PageName));
+        // System.out.println(AdFormatName);
+        // System.out.println(PageName);
+        // System.out.println(AdFormatName.toString().equals(PageName));
         return AdFormatName.toString().equals(PageName);
     }
 

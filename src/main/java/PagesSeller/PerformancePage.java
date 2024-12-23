@@ -233,7 +233,8 @@ public class PerformancePage {
         ExtensiveWait.until(ExpectedConditions.visibilityOfElementLocated(ProductSelectionProductCount));
         String ActualCountText = driver.findElement(ProductSelectionProductCount).getText();
         int ActualCount = Integer.parseInt(ActualCountText);
-        System.out.println(ActualCount);
+        // System.out.println(ActualCount);
+        System.out.println(" ");
         if (ActualCount == Count) {
             flag = true;
         }
@@ -635,7 +636,7 @@ public class PerformancePage {
     @Step("Validating successful creation of Search Only campaign")
     public boolean ValidateCreatedSearchOnlyCampaignName(String CampaignName) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(CampaignNameVerificationFirstRow));
-        System.out.println(driver.findElement(CampaignNameVerificationFirstRow).getText());
+        // System.out.println(driver.findElement(CampaignNameVerificationFirstRow).getText());
         return driver.findElement(CampaignNameVerificationFirstRow).getText().equalsIgnoreCase(CampaignName);
     }
     @Step("Clicking on searchOnly campaign tab in home page")
@@ -905,7 +906,7 @@ public class PerformancePage {
 
     @Step("Validating the smart campaign created campaign name")
     public boolean ValidateCreatedSmartCampaignName(String CampaignName) {
-        System.out.println(CampaignName);
+        // System.out.println(CampaignName);
         wait.until(ExpectedConditions.visibilityOfElementLocated(CampaignNameVerificationFirstRow));
         return driver.findElement(CampaignNameVerificationFirstRow).getText().equalsIgnoreCase(CampaignName);
 
@@ -1004,7 +1005,7 @@ public class PerformancePage {
         fos.close();
 
         System.out.println("Successfully modified the first 3 'No' values to 'Yes' in the 'Select' column.");
-        System.out.println(downloadFolder + "\\" + excelFileName.getName());
+        // System.out.println(downloadFolder + "\\" + excelFileName.getName());
         driver.findElement(XlsxInputField).sendKeys(downloadFolder + File.separator + excelFileName.getName());
         System.out.println("Uploaded Successfully");
     }
@@ -1024,7 +1025,7 @@ public class PerformancePage {
     @Step("Deleting Bulk Product File") // Only can be called after BulkUploadFileModifiedWithYes
     public void DeleteFileAfterModification() {
         excelFileName.delete();
-        System.out.println("File Deleted Successfully");
+        // System.out.println("File Deleted Successfully");
     }
 
     @Step("Uploading xlsx file into the field ")
