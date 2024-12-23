@@ -6,12 +6,7 @@
     </listeners>
     <test verbose="10" preserve-order="true" name="Webapp-Online-Sales-AI" thread-count="6" parallel="classes">
         <classes>
-             <class name="TestPulse.OSMOS.Finance">
-                <methods>
-                    <include name="FinanceDashboardOperations"/>
-                    <include name="FinanceAdvertiserManagementOperations"/>
-                </methods>
-            </class>
+         
 
             <class name="TestSeller.Tving.OrdersDev">
                 <methods>
@@ -137,6 +132,13 @@
                     <include name="DashboardOperations"/>
                     <include name="AwarenessTableOperations"/>
                     <include name="PerformanceTableOperations"/>
+                </methods>
+            </class>
+
+                <class name="TestPulse.OSMOS.Finance">
+                <methods>
+                    <include name="FinanceDashboardOperations"/>
+                    <include name="FinanceAdvertiserManagementOperations"/>
                 </methods>
             </class>
         </classes>

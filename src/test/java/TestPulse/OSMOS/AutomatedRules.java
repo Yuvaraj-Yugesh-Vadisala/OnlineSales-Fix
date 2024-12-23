@@ -10,7 +10,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import PagesPulse.OSMOS.Utility;
 
 import java.awt.*;
 
@@ -34,6 +33,9 @@ public class AutomatedRules extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
+
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Started: " + this.getClass().getName());
+
     }
 
     @BeforeMethod
@@ -46,6 +48,8 @@ public class AutomatedRules extends BaseTest {
 
     @AfterClass
     public void TearDown() {
+                System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished: " + this.getClass().getName());
+
         getDriver().quit();
     }
 
