@@ -40,7 +40,7 @@ public class OrdersDev extends BaseTest {
     }
     @AfterMethod
     public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
 
 

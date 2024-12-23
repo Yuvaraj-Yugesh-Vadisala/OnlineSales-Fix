@@ -30,7 +30,6 @@ public class ProductTemplate extends BaseTest {
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
 
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting: " + this.getClass().getSimpleName());
 
     }
 
@@ -42,13 +41,11 @@ public class ProductTemplate extends BaseTest {
     }
     @AfterMethod
     public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
 
     @AfterClass
     public void TearDown() {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished: " + this.getClass().getSimpleName());
-
         getDriver().quit();
     }
 
