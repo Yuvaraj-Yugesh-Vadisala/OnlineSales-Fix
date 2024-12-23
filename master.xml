@@ -105,7 +105,8 @@
                     <include name="ValidateAllFieldsWhileCreatingPage"/>
                     <include name="CreateNewAdFormat"/>
                     <include name="ValidateAllFieldsWhileCreatingAdFormat"/>
-                    <include name="CreateNewInventory"/>
+                    <include name="CreateNewCPCInventory"/>
+                     <include name="CreateNewCPMInventory"/>
                     <include name="ValidateAllFieldsWhileCreatingInventory"/>
                 </methods>
             </class>
