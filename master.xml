@@ -6,7 +6,20 @@
     </listeners>
     <test verbose="10" preserve-order="true" name="Webapp-Online-Sales-AI" thread-count="6" parallel="classes">
         <classes>
-            <!-- <class name="TestSeller.Tving.OrdersDev">
+          <class name="TestSeller.OSMOS.Dashboard">
+                <methods>
+                    <include name="DashboardOperations"/>
+                    <include name="AwarenessTableOperations"/>
+                    <include name="PerformanceTableOperations"/>
+                </methods>
+            </class>
+             <class name="TestPulse.OSMOS.Finance">
+                <methods>
+                    <include name="FinanceDashboardOperations"/>
+                    <include name="FinanceAdvertiserManagementOperations"/>
+                </methods>
+            </class>
+            <class name="TestSeller.Tving.OrdersDev">
                 <methods>
                     <include name="CreateNewOrderWithAllMandatoryFields"/>
                     <include name="ValidateAllFieldsInOrderCreation"/>
@@ -56,8 +69,6 @@
                     <include name="CreateGuaranteedCampaignsCostPerDay"/>
                 </methods>
             </class>
-
-
             <class name="TestSeller.OSMOS.Performance">
                 <methods>
                    <include name="CreateSearchOnlyCampaign"/>
@@ -99,8 +110,7 @@
                     <include name="ValidateAllFieldsWhileCreatingPage"/>
                     <include name="CreateNewAdFormat"/>
                     <include name="ValidateAllFieldsWhileCreatingAdFormat"/>
-                    <include name="CreateNewCPCInventory"/>
-                     <include name="CreateNewCPInventory"/>
+                    <include name="CreateNewInventory"/>
                     <include name="ValidateAllFieldsWhileCreatingInventory"/>
                 </methods>
             </class>
@@ -127,21 +137,6 @@
                     <include name="ReviewCreatedCampaign"/>
                 </methods>
             </class>
-            <class name="TestPulse.OSMOS.Finance">
-                <methods>
-                    <include name="FinanceDashboardOperations"/>
-                    <include name="FinanceAdvertiserManagementOperations"/>
-                </methods>
-            </class> -->
-
-                <class name="TestSeller.OSMOS.Dashboard">
-                <methods>
-                    <include name="DashboardOperations"/>
-                    <include name="AwarenessTableOperations"/>
-                    <include name="PerformanceTableOperations"/>
-                </methods>
-            </class>
-
         </classes>
     </test>
 </suite>
