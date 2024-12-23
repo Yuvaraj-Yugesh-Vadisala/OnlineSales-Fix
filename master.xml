@@ -104,13 +104,14 @@
                     <include name="AdvertiserSegmentMangerNegativeFlow"/>
                 </methods>
             </class>
-            <class name="TestPulse.OSMOS.AdInventoryManagement">
+           <class name="TestPulse.OSMOS.AdInventoryManagement">
                 <methods>
                     <include name="CreateNewPage"/>
                     <include name="ValidateAllFieldsWhileCreatingPage"/>
                     <include name="CreateNewAdFormat"/>
                     <include name="ValidateAllFieldsWhileCreatingAdFormat"/>
-                    <include name="CreateNewInventory"/>
+                    <include name="CreateNewCPMInventory"/>              
+                    <include name="CreateNewCPCInventory"/>
                     <include name="ValidateAllFieldsWhileCreatingInventory"/>
                 </methods>
             </class>
