@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression_Test_Suite_Master">
+    <listeners>
+        <listener class-name="EventListeners.AllureScreenShot"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="Webapp-Online-Sales-AI" thread-count="6" parallel="classes">
+        <classes>
+        <class name="TestPulse.OSMOS.DownloadReports.AdvertiserInsightsDownload">
+            <methods>
+                <include name="DownloadReportsInAdvertiserInsights"/>
+                <include name="DownloadBudgetUtilizationReportInAdvertiserInsights"/>
+                <include name="DownloadAdvertiserSnapshotReportInAdvertiserInsights"/>
+                <include name="DownloadMoversAndShakersReportInAdvertiserInsights"/>
+                <include name="DownloadAdFormatPerformanceReportInAdvertiserInsights"/>
+                <include name="DownloadChannelPerformanceReportInAdvertiserInsights"/>
+                <include name="DownloadCampaignPerformanceReportInAdvertiserInsights"/>
+                <include name="DownloadAdvertiserDimensionReportInAdvertiserInsights"/>
+            </methods>
+        </class>
+        <class name="TestPulse.OSMOS.DownloadReports.DisplayAdDemandAndSupply">
+            <methods>
+                <include name="DownloadDemandAndSupplyGapAnalyticsReport"/>
+                <include name="DownloadBudgetUtilizationTrendReport"/>
+                <include name="DownloadSeasonalityReport"/>
+                <!--                    <include name="Download30dayImpressionProjectionsReport"/>-->
+                <include name="DownloadSupplyAnalyticsReport"/>
+            </methods>
+        </class>
+        <class name="TestPulse.OSMOS.DownloadReports.DisplayAdServerAnalytics">
+            <methods>
+                <include name="DownloadPageLevelPerformanceReport"/>
+                <include name="DownloadPageLevelContributionReport"/>
+                <include name="DownloadAdInventoryPerformanceReport"/>
+            </methods>
+        </class>
+        <class name="TestPulse.OSMOS.DownloadReports.HomeDownload">
+            <methods>
+                <include name="DownloadMetricsComparisonReportReportsInHome"/>
+            </methods>
+        </class>
+        <class name="TestPulse.OSMOS.DownloadReports.ProductAdServerAnalytics">
+            <methods>
+                <include name="DownloadPageLevelContributionReport"/>
+                <include name="DownloadDailyPagePerformanceReport"/>
+                <include name="DownloadSKUByHourReport"/>
+                <include name="DownloadDevicePerformanceReport"/>
+            </methods>
+        </class>
+        <class name="TestPulse.OSMOS.DownloadReports.ProductDemandAndSupply">
+            <methods>
+                <include name="DownloadGapAnalyticsReport"/>
+                <include name="DownloadBudgetUtilizationTrendReport"/>
+                <include name="DownloadSeasonalityReport"/>
+                <include name="DownloadAdvertiserOverallGMVReport"/>
+                <include name="DownloadSearchDemandPlannerReport"/>
+                <include name="DownloadCategoryPerformanceReport"/>
+            </methods>
+        </class>
+        <class name="TestPulse.OSMOS.DownloadReports.HomeDownload">
+            <methods>
+                <include name="DownloadMetricsComparisonReportReportsInHome"/>
+            </methods>
+        </class>
+        </classes>
+    </test>
+</suite>

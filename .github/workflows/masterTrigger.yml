@@ -1,0 +1,79 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Trigger Automation Master
+
+on:
+  workflow_dispatch:
+    inputs:
+      OsmosSellerUrl:
+        description: 'OsmosSellerUrl'
+        required: false
+        default: 'https://osmos-qa-staging-1.onlinesales.ai/'
+      PulseUrl:
+        description: 'PulseUrl'
+        required: false
+        default: 'https://tving-dev-pulse.onlinesales.ai/'
+      TvingSellerUrl:
+        description: 'TvingSellerUrl'
+        required: false
+        default: 'https://tving-dev.onlinesales.ai/'
+      xml-suite:
+        description: 'Select XML Suite to Run'
+        required: true
+        type: choice
+        options:
+          - 'seller.xml'
+          - 'pulse.xml'
+          - 'master.xml'
+
+jobs:
+  ui-automation:
+    runs-on: ubuntu-latest
+
+    services:
+      xvfb:
+        image: docker.io/selenium/standalone-chrome:latest
+        options: >-
+          --shm-size 2g
+          --name xvfb
+          --label testing
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Install Maven
+        run: sudo apt-get install -y maven
+
+      - name: Install Allure
+        run: |
+          curl -o allure-2.13.8.tgz -OLs https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.13.8/allure-commandline-2.13.8.tgz
+          sudo tar -zxvf allure-2.13.8.tgz -C /opt/
+          sudo ln -s /opt/allure-2.13.8/bin/allure /usr/bin/allure
+
+      - name: Start Xvfb
+        run: |
+          Xvfb :99 -screen 0 1920x1080x24 &
+
+      - name: Run UI tests
+        run: |
+          mvn clean test -DxmlFile="${{ github.event.inputs.xml-suite }}" -DOsmosSellerUrl="${{ github.event.inputs.OsmosSellerUrl }}" -DPulseUrl="${{ github.event.inputs.PulseUrl }}" -DTvingSellerUrl="${{ github.event.inputs.TvingSellerUrl }}"
+          export DISPLAY=:99
+
+      - name: Publish Allure results
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-results
+          path: allure-results

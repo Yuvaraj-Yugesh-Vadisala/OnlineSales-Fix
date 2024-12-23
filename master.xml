@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression_Test_Suite_Master">
+    <listeners>
+        <listener class-name="EventListeners.AllureScreenShot"/>
+    </listeners>
+    <test verbose="10" preserve-order="true" name="Webapp-Online-Sales-AI" thread-count="6" parallel="classes">
+        <classes>
+            <class name="TestSeller.Tving.OrdersDev">
+                <methods>
+                    <include name="CreateNewOrderWithAllMandatoryFields"/>
+                    <include name="ValidateAllFieldsInOrderCreation"/>
+                </methods>
+            </class>
+            <class name="TestPulse.CampaignTemplate">
+                <methods>
+                    <include name="CreateNewCampaignTemplate"/>
+                    <include name="ValidationOfAllFieldsWhileCampaignTemplateCreation"/>
+                </methods>
+            </class>
+            <class name="TestPulse.ControlCenter">
+                <methods>
+                    <include name="AddAndDeleteAdOpsUser"/>
+                    <include name="ValidateAllFieldsWhileCreatingNewAdOpsUser"/>
+                </methods>
+            </class>
+            <class name="TestPulse.OrdersPulse">
+                <methods>
+                    <include name="AddingCommentToOrder"/>
+                    <include name="ReviewVideoCreativeLibrary"/>
+                </methods>
+            </class>
+            <class name="TestPulse.ProductTemplate">
+                <methods>
+                    <include name="CreateNewProductTemplateWithAllOptionalFeatures"/>
+                    <include name="ValidateAllFieldInProductTemplateCreation"/>
+                </methods>
+            </class>
+            <class name="TestSeller.Tving.ScheduleReport">
+                <methods>
+                    <include name="SuccessfullyScheduleReports"/>
+                    <include name="ScheduleReportsWithNegativeAspect"/>
+                </methods>
+            </class>
+            <class name="TestSeller.OSMOS.AwarenessAuction">
+                <methods>
+                    <include name="CreateAuctionCampaignWithCPCBuyingType"/>
+                    <include name="ValidateAllFieldsWhileCreatingAuctionCampaignWithCPMBuyingType"/>
+                    <include name="ValidateMediaEstimatorTotalBudgetFields"/>
+                </methods>
+            </class>
+            <class name="TestSeller.OSMOS.AwarenessGuaranteed">
+                <methods>
+                    <include name="CreateGuaranteedCampaignsCostPerImpressionsWithAllOptionalFeatures"/>
+                    <include name="ValidateAllFeaturesInGuaranteedCampaignCreation"/>
+                    <include name="CreateGuaranteedCampaignsCostPerDay"/>
+                </methods>
+            </class>
+            <class name="TestSeller.OSMOS.Dashboard">
+                <methods>
+                    <include name="DashboardOperations"/>
+                    <include name="AwarenessTableOperations"/>
+                    <include name="PerformanceTableOperations"/>
+                </methods>
+            </class>
+
+            <class name="TestSeller.OSMOS.Performance">
+                <methods>
+                   <include name="CreateSearchOnlyCampaign"/>
+                    <include name="CreateSmartCampaignWithAllOptionalFeatures"/>
+                    <include name="ValidateAllFieldsInPerformanceCampaignCreation"/>
+                </methods>
+            </class>
+            <class name="TestPulse.OSMOS.UserManagement">
+                <methods>
+                    <include name="SuperAdminOperations"/>
+                    <include name="SuperAdminOperationsNegative"/>
+                    <include name="OpsUserOperations"/>
+                    <include name="AdvertiserUsersOperations"/>
+                </methods>
+            </class>
+            <class name="TestPulse.OSMOS.ProductAdsYieldControl">
+                <methods>
+                    <include name="ProductAdsYieldControlPositiveFlow"/>
+                    <include name="ProductAdsYieldControlNegativeFlow"/>
+                </methods>
+            </class>
+            <class name="TestPulse.OSMOS.BuildYourOwnTargeting">
+                <methods>
+                    <include name="KeyValueSetUp"/>
+                    <include name="KeyValueSetUpNegativeFlow"/>
+                    <include name="TargetingSetUp"/>
+                    <include name="TargetingSetUpNegativeFlow"/>
+                </methods>
+            </class>
+            <class name="TestPulse.OSMOS.AdvertiserSegmentManager">
+                <methods>
+                    <include name="AdvertiserSegmentMangerPositiveFlow"/>
+                    <include name="AdvertiserSegmentMangerNegativeFlow"/>
+                </methods>
+            </class>
+            <class name="TestPulse.OSMOS.AdInventoryManagement">
+                <methods>
+                    <include name="CreateNewPage"/>
+                    <include name="ValidateAllFieldsWhileCreatingPage"/>
+                    <include name="CreateNewAdFormat"/>
+                    <include name="ValidateAllFieldsWhileCreatingAdFormat"/>
+                    <include name="CreateNewInventory"/>
+                    <include name="ValidateAllFieldsWhileCreatingInventory"/>
+                </methods>
+            </class>
+            <class name="TestPulse.OSMOS.Analytics">
+                <methods>
+                    <include name="ProductsAdsInsights"/>
+                    <include name="DisplayAdsInsights"/>
+                    <include name="ValidateAdvertiserInsightsElements"/>
+                </methods>
+            </class>
+            <class name="TestPulse.OSMOS.Home">
+                <methods>
+                    <include name="ValidateHomePageElements"/>
+                </methods>
+            </class>
+            <class name="TestPulse.OSMOS.AutomatedRules">
+                <methods>
+                    <include name="CreateWalletRules"/>
+                    <include name="ValidateAllFieldsWhileCreatingNewWalletRules"/>
+                </methods>
+            </class>
+            <class name="TestPulse.OSMOS.Review">
+                <methods>
+                    <include name="ReviewCreatedCampaign"/>
+                </methods>
+            </class>
+            <class name="TestPulse.OSMOS.Finance">
+                <methods>
+                    <include name="FinanceDashboardOperations"/>
+                    <include name="FinanceAdvertiserManagementOperations"/>
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+</suite>

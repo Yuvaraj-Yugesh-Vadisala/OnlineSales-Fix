@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression_Test_Suite_Seller">
+    <listeners>
+        <listener class-name="EventListeners.AllureScreenShot"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="Webapp-Online-Sales-AI" thread-count="4" parallel="classes">
+        <classes>
+            <class name="TestSeller.OSMOS.AwarenessAuction">
+                <methods>
+                    <include name="CreateAuctionCampaignWithCPCBuyingType"/>
+                    <include name="ValidateAllFieldsWhileCreatingAuctionCampaign"/>
+                    <include name="ValidateMediaEstimatorTotalBudgetFields"/>
+                </methods>
+            </class>
+            <class name="TestSeller.OSMOS.AwarenessGuaranteed">
+                <methods>
+                    <include name="CreateGuaranteedCampaignsCostPerImpressionsWithAllOptionalFeatures"/>
+                    <include name="ValidateAllFeaturesInGuaranteedCampaignCreation"/>
+                    <include name="CreateGuaranteedCampaignsCostPerDay"/>
+                </methods>
+            </class>
+            <class name="TestSeller.OSMOS.Performance">
+                <methods>
+                    <include name="CreateSearchOnlyCampaign"/>
+                    <include name="CreateSmartCampaignWithAllOptionalFeatures"/>
+                    <include name="ValidateAllFieldsInPerformanceCampaignCreation"/>
+                </methods>
+            </class>
+            <class name="TestSeller.OSMOS.Dashboard">
+                <methods>
+                    <include name="DashboardOperations"/>
+                    <include name="AwarenessTableOperations"/>
+                    <include name="PerformanceTableOperations"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

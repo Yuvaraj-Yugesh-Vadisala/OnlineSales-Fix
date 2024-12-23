@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression_Test_Suite_Pulse">
+    <listeners>
+        <listener class-name="EventListeners.AllureScreenShot"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="Webapp-Online-Sales-AI" thread-count="4" parallel="classes">
+        <classes>
+            <class name="TestPulse.CampaignTemplate">
+                <methods>
+                    <include name="CreateNewCampaignTemplate"/>
+                    <include name="CreateDisplayAdCampaignTemplate"/>
+                    <include name="ValidationOfAllFieldsWhileCampaignTemplateCreation"/>
+                </methods>
+            </class>
+            <class name="TestPulse.ControlCenter">
+                <methods>
+                    <include name="AddAndDeleteAdOpsUser"/>
+                    <include name="ValidateAllFieldsWhileCreatingNewAdOpsUser"/>
+                </methods>
+            </class>
+            <class name="TestSeller.Tving.OrdersDev">
+                <methods>
+                    <include name="CreateNewOrderWithAllMandatoryFields"/>
+                    <include name="ValidateAllFieldsInOrderCreation"/>
+                </methods>
+            </class>
+            <class name="TestPulse.OrdersPulse">
+                <methods>
+                    <include name="AddingCommentToOrder"/>
+                    <include name="ReviewVideoCreativeLibrary"/>
+                </methods>
+            </class>
+            <class name="TestPulse.ProductTemplate">
+                <methods>
+                    <include name="CreateNewProductTemplateWithAllOptionalFeatures"/>
+                    <include name="CreateDisplayAdProductTemplateWithAllOptionalFeatures"/>
+                    <include name="ValidateAllFieldInProductTemplateCreation"/>
+                </methods>
+            </class>
+            <class name="TestSeller.Tving.ScheduleReport">
+                <methods>
+                    <include name="SuccessfullyScheduleReports"/>
+                    <include name="ScheduleReportsWithNegativeAspect"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
