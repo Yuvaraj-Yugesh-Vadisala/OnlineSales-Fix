@@ -6,10 +6,8 @@ import PagesPulse.ProductTemplatePage;
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
 import java.awt.*;
@@ -37,8 +35,14 @@ public class ProductTemplate extends BaseTest {
     }
 
     @BeforeMethod
-    public void ResetPage() throws InterruptedException, AWTException {
+    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
         getDriver().navigate().to(PulseUrl);
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
+
+    }
+    @AfterMethod
+    public void afterMethod(ITestResult result) {
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
     }
 
     @AfterClass
