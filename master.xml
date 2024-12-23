@@ -56,13 +56,13 @@
                     <include name="CreateGuaranteedCampaignsCostPerDay"/>
                 </methods>
             </class>
-            <class name="TestSeller.OSMOS.Dashboard">
+<!--             <class name="TestSeller.OSMOS.Dashboard">
                 <methods>
                     <include name="DashboardOperations"/>
                     <include name="AwarenessTableOperations"/>
                     <include name="PerformanceTableOperations"/>
                 </methods>
-            </class>
+            </class> -->
 
             <class name="TestSeller.OSMOS.Performance">
                 <methods>
