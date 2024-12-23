@@ -111,7 +111,7 @@ public class Finance extends BaseTest {
                 utils.ClickOnCrossButtonLevel2();
                 utils.ClickOnCrossButton();
                 financepage.ClickOnTransactionDownloadButton();
-            } catch (Exception  e) {
+            } catch (InterruptedException  e) {
                 softAssert.fail("Test interrupted unexpectedly: " + e.getMessage());
             }
         softAssert.assertAll();
@@ -165,7 +165,7 @@ public class Finance extends BaseTest {
                     utils.TakeScreenshotOnSoftAssertion("SoftAssertion: Failed to load multi wallet transaction logs download button Within 2 Minutes in Finance Advertiser Management page");
                     softAssert.fail("Failed to load multi wallet transaction logs download button Within 2 Minutes In Finance Advertiser Management page");
                 }
-            } catch (Exception e) {
+            } catch (InterruptedException e) {
                 softAssert.fail("Test interrupted unexpectedly: " + e.getMessage());
             }
             softAssert.assertAll();
