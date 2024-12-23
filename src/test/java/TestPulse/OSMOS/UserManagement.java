@@ -52,7 +52,7 @@ public class UserManagement extends BaseTest {
     @Feature("This flow belongs to User Management- Super Admin Users")
     @Story("Super Admin Operations-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Super Admin Operations")
+    @Test(timeOut = 10000,description = "Test: Super Admin Operations")
     public void SuperAdminOperations()   {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -103,7 +103,7 @@ public class UserManagement extends BaseTest {
     @Feature("This flow belongs to User Management-Super Admin Users")
     @Story("Super Admin Operations-Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Super Admin Operations")
+    @Test(timeOut = 10000,description = "Test: Super Admin Operations")
     public void SuperAdminOperationsNegative() throws InterruptedException {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -167,7 +167,7 @@ public class UserManagement extends BaseTest {
     @Feature("This flow belongs to User Management- Ops Users")
     @Story("OpsUser Operations-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Ops User Operations")
+    @Test(timeOut = 10000,description = "Test: Ops User Operations")
     public void OpsUserOperations() throws InterruptedException {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -243,7 +243,7 @@ public class UserManagement extends BaseTest {
     @Feature("This flow belongs to User Management- Advertiser Users")
     @Story("Advertiser Users Operations-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Advertiser User Operations")
+    @Test(timeOut = 10000,description = "Test: Advertiser User Operations")
     public void AdvertiserUsersOperations() throws InterruptedException {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();

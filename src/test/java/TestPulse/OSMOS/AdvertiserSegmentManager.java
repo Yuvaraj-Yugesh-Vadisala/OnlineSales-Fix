@@ -57,7 +57,7 @@ public class AdvertiserSegmentManager extends BaseTest {
     @Feature("This flow belongs to Advertiser Segment Manager")
     @Story("Advertiser Segment Manager - Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Advertiser Segment Manager - Positive")
+    @Test(timeOut = 10000,description = "Test: Advertiser Segment Manager - Positive")
     public void AdvertiserSegmentMangerPositiveFlow()  {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -118,7 +118,7 @@ public class AdvertiserSegmentManager extends BaseTest {
     @Feature("This flow belongs to Advertiser Segment Manager")
     @Story("Advertiser Segment Manager - Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Advertiser Segment Manager - Negative")
+    @Test(timeOut = 10000,description = "Test: Advertiser Segment Manager - Negative")
     public void AdvertiserSegmentMangerNegativeFlow() {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();

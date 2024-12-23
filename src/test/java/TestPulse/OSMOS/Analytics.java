@@ -54,7 +54,7 @@ public class Analytics extends BaseTest {
     @Feature("This flow belongs to Analytics-Demand And Supply")
     @Story("Analytics-Product Ads Insights-Demand And Supply")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Products Ads Insights-Demand And Supply")
+    @Test(timeOut = 10000,description = "Test: Products Ads Insights-Demand And Supply")
     public void ProductsAdsInsights()   {
         utils.RetryOnFailOsmosPulseSandBox((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -100,7 +100,7 @@ public class Analytics extends BaseTest {
     @Feature("This flow belongs to Analytics-Ad Server Analytics")
     @Story("Analytics-Display Ads Insights- Ad Server Analytics")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Display Ads Insights-Ad Server Analytics")
+    @Test(timeOut = 10000,description = "Test: Display Ads Insights-Ad Server Analytics")
     public void DisplayAdsInsights()   {
         utils.RetryOnFailOsmosPulseSandBox((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -126,7 +126,7 @@ public class Analytics extends BaseTest {
     @Feature("This flow belongs to Advertiser Insights")
     @Story("Advertiser Insights Validations-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Validate Advertiser Insights elements")
+    @Test(timeOut = 10000,description = "Test: Validate Advertiser Insights elements")
     public void ValidateAdvertiserInsightsElements()  {
         utils.RetryOnFailOsmosPulseSandBox((() -> {
             SoftAssert softAssert = new SoftAssert();

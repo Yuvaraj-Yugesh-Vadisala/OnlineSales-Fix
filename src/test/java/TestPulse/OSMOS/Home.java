@@ -52,7 +52,7 @@ public class Home extends BaseTest {
     @Feature("This flow belongs to Home Page")
     @Story("Home Page Validations")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Validate home pages elements")
+    @Test(timeOut = 10000,description = "Test: Validate home pages elements")
     public void ValidateHomePageElements()   {
         utility.RetryOnFailOsmosPulseSandBox((() -> {
             SoftAssert softAssert = new SoftAssert();

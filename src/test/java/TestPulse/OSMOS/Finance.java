@@ -52,7 +52,7 @@ public class Finance extends BaseTest {
     @Feature("This flow belongs to Finance Tab Operation")
     @Story("Finance-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Finance Dashboard Operations" , priority = 0)
+    @Test(timeOut = 10000,description = "Test: Finance Dashboard Operations" , priority = 0)
     public void FinanceDashboardOperations() throws RuntimeException {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -119,7 +119,7 @@ public class Finance extends BaseTest {
     @Feature("This flow belongs to Finance Advertiser Management tab operations")
     @Story("Finance-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Finance Advertiser Management Operations" , priority = 1)
+    @Test(timeOut = 10000,description = "Test: Finance Advertiser Management Operations" , priority = 1)
     public void FinanceAdvertiserManagementOperations() {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();

@@ -82,7 +82,7 @@ public class Review extends BaseTest {
     @Feature("This flow belongs to Campaign Review")
     @Story("Campaign Review- Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Review created campaign")
+    @Test(timeOut = 20000,description = "Test: Review created campaign")
     public void ReviewCreatedCampaign() {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();

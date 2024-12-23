@@ -52,7 +52,7 @@ public class ProductTemplate extends BaseTest {
     @Feature("This flow belongs to Product Template")
     @Story("Product Template Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Create new product template")
+    @Test(timeOut = 10000,description = "Test: Create new product template")
     public void CreateNewProductTemplateWithAllOptionalFeatures() {
         campaignTemplatePage.RetryOnFailPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -151,7 +151,7 @@ public class ProductTemplate extends BaseTest {
     @Feature("This flow belongs to Product Template")
     @Story("Product Display Ad Template Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Create display ad product template")
+    @Test(timeOut = 10000,description = "Test: Create display ad product template")
     public void CreateDisplayAdProductTemplateWithAllOptionalFeatures() {
         campaignTemplatePage.RetryOnFailPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -252,7 +252,7 @@ public class ProductTemplate extends BaseTest {
     @Feature("This flow belongs to Product Template")
     @Story("Product Template Creation-Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Validating all fields while creating product template")
+    @Test(timeOut = 10000,description = "Test: Validating all fields while creating product template")
     public void ValidateAllFieldInProductTemplateCreation() throws InterruptedException {
         campaignTemplatePage.RetryOnFailPulse((() -> {
             SoftAssert softAssert = new SoftAssert();

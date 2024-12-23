@@ -52,7 +52,7 @@ public class CampaignTemplate extends BaseTest {
     @Feature("This flow belongs to Campaign Template")
     @Story("Campaign Template Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Create new campaign template")
+    @Test(timeOut = 10000,description = "Test: Create new campaign template")
     public void CreateNewCampaignTemplate()  {
         campaignTemplatePage.RetryOnFailPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -93,7 +93,7 @@ public class CampaignTemplate extends BaseTest {
     @Feature("This flow belongs to Campaign Template")
     @Story("Campaign Template Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Create display ad campaign template")
+    @Test(timeOut = 10000,description = "Test: Create display ad campaign template")
     public void CreateDisplayAdCampaignTemplate()  {
         campaignTemplatePage.RetryOnFailPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -138,7 +138,7 @@ public class CampaignTemplate extends BaseTest {
     @Feature("This flow belongs to Campaign Template")
     @Story("Campaign Template Creation-Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Validating All fields while creating Campaign template")
+    @Test(timeOut = 10000,description = "Test: Validating All fields while creating Campaign template")
     public void ValidationOfAllFieldsWhileCampaignTemplateCreation() throws InterruptedException {
         campaignTemplatePage.RetryOnFailPulse((() ->
         {

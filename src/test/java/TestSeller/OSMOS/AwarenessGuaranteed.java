@@ -59,7 +59,7 @@ public class AwarenessGuaranteed extends BaseTest {
     @Feature("Awareness Page")
     @Story("This flow belongs to Guaranteed Campaign Creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Create a successful guaranteed campaign cost per impressions flow")
+    @Test(description = "Test: Create a successful guaranteed campaign cost per impressions flow", timeOut = 20000)
     public void CreateGuaranteedCampaignsCostPerImpressionsWithAllOptionalFeatures() {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -192,7 +192,7 @@ public class AwarenessGuaranteed extends BaseTest {
     @Feature("Awareness Page")
     @Story("This flow belongs to Guaranteed Campaign Creation")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Validating all features in guaranteed campaign creation")
+    @Test(description = "Test: Validating all features in guaranteed campaign creation", timeOut = 20000)
     public void ValidateAllFeaturesInGuaranteedCampaignCreation() {
         performancePage.RetryOnFailOSMOSSeller(() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -575,7 +575,7 @@ public class AwarenessGuaranteed extends BaseTest {
     @Feature("Awareness Page")
     @Story("This flow belongs to Guaranteed Campaign Creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Create a successful guaranteed campaign cost per Day flow")
+    @Test(description = "Test: Create a successful guaranteed campaign cost per Day flow", timeOut = 20000)
     public void CreateGuaranteedCampaignsCostPerDay() {
         performancePage.RetryOnFailOSMOSSeller((() ->
         {

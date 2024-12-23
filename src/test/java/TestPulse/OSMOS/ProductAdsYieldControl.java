@@ -52,7 +52,7 @@ public class ProductAdsYieldControl extends BaseTest {
     @Feature("This flow belongs to Product Ads Yield Control")
     @Story("Product Ads Yield Control-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Product Ads Yield Control - Positive")
+    @Test(timeOut = 10000,description = "Test: Product Ads Yield Control - Positive")
     public void ProductAdsYieldControlPositiveFlow()   {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -113,7 +113,7 @@ public class ProductAdsYieldControl extends BaseTest {
     @Feature("This flow belongs to Product Ads Yield Control")
     @Story("Product Ads Yield Control-Negative Flow")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Product Ads Yield Control - Negative")
+    @Test(timeOut = 10000,description = "Test: Product Ads Yield Control - Negative")
     public void ProductAdsYieldControlNegativeFlow()   {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();

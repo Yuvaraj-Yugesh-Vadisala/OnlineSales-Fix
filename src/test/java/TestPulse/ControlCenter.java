@@ -52,7 +52,7 @@ public class ControlCenter extends BaseTest {
     @Feature("This flow belongs to Control Center")
     @Story("Control Center-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Add and Delete AdOps User")
+    @Test(timeOut = 10000,description = "Test: Add and Delete AdOps User")
     public void AddAndDeleteAdOpsUser() throws InterruptedException {
         campaignTemplatePage.RetryOnFailPulse((() ->
         {
@@ -103,7 +103,7 @@ public class ControlCenter extends BaseTest {
     @Feature("This flow belongs to Control Center")
     @Story("Control Center-Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Add and Delete AdOps User")
+    @Test(timeOut = 10000,description = "Test: Add and Delete AdOps User")
     public void ValidateAllFieldsWhileCreatingNewAdOpsUser() throws InterruptedException {
         campaignTemplatePage.RetryOnFailPulse((() ->
         {
