@@ -32,10 +32,15 @@ public class OrdersDev extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
+
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Started: " + this.getClass().getSimpleName());
+
     }
 
     @BeforeMethod
     public void ResetPage() {
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished: " + this.getClass().getSimpleName());
+
         getDriver().navigate().refresh();
     }
 
