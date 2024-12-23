@@ -61,7 +61,7 @@ public class AdInventoryManagement extends BaseTest {
     @Feature("This flow belongs to Page Set Up")
     @Story("Page Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(priority = 0, description = "Test: Create new Page")
+    @Test(timeOut = 10000,priority = 0, description = "Test: Create new Page")
     public void CreateNewPage()  {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -109,7 +109,7 @@ public class AdInventoryManagement extends BaseTest {
     @Feature("This flow belongs to Ad Format Set Up")
     @Story("Ad Format Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(priority = 1,description = "Test: Create new Ad Format")
+    @Test(timeOut = 10000,priority = 1,description = "Test: Create new Ad Format")
     public void CreateNewAdFormat()   {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -230,7 +230,7 @@ public class AdInventoryManagement extends BaseTest {
     @Feature("This flow belongs to Inventory Set Up")
     @Story("Inventory Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(priority = 2,description = "Test: Create new CPM Inventory")
+    @Test(timeOut = 10000,priority = 2,description = "Test: Create new CPM Inventory")
     public void CreateNewCPMInventory()   {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -300,7 +300,7 @@ public class AdInventoryManagement extends BaseTest {
     @Feature("This flow belongs to Inventory Set Up")
     @Story("Inventory Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(priority = 3,description = "Test: Create new CPC Inventory")
+    @Test(timeOut = 10000,priority = 3,description = "Test: Create new CPC Inventory")
     public void CreateNewCPCInventory()   {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -368,7 +368,7 @@ public class AdInventoryManagement extends BaseTest {
     @Feature("This flow belongs to Inventory Set Up")
     @Story("Inventory Creation- Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(priority = 4,description = "Test: Validate all fields while creating  new Inventory")
+    @Test(timeOut = 10000,priority = 4,description = "Test: Validate all fields while creating  new Inventory")
     public void ValidateAllFieldsWhileCreatingInventory()   {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -551,7 +551,7 @@ public class AdInventoryManagement extends BaseTest {
     @Feature("This flow belongs to Page Set Up")
     @Story("Page Creation-Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(priority = 5,description = "Test: Validate all fields while creating page")
+    @Test(timeOut = 10000,priority = 5,description = "Test: Validate all fields while creating page")
     public void ValidateAllFieldsWhileCreatingPage()  {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -623,7 +623,7 @@ public class AdInventoryManagement extends BaseTest {
     @Feature("This flow belongs to Ad Format Set Up")
     @Story("Ad Format Creation-Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(priority = 6,description = "Test: Validate all fields while creating ad format")
+    @Test(timeOut = 10000,priority = 6,description = "Test: Validate all fields while creating ad format")
     public void ValidateAllFieldsWhileCreatingAdFormat()   {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();

@@ -55,7 +55,7 @@ public class Performance extends BaseTest {
     @Feature("Performance Page")
     @Story("This flow belongs to search only campaign creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Create a successful search only campaign flow")
+    @Test(description = "Test: Create a successful search only campaign flow", timeOut = 20000)
     public void CreateSearchOnlyCampaign() {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -133,7 +133,7 @@ public class Performance extends BaseTest {
     @Feature("Performance Page")
     @Story("This flow belongs to smart campaign creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Create a successful smart campaign with all optional features")
+    @Test(description = "Test: Create a successful smart campaign with all optional features", timeOut = 20000)
     public void CreateSmartCampaignWithAllOptionalFeatures() {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -355,7 +355,7 @@ public class Performance extends BaseTest {
     @Feature("Performance Page")
     @Story("This flow belongs to smart campaign creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Validation of all fields while creating performance campaign")
+    @Test(description = "Test: Validation of all fields while creating performance campaign", timeOut = 20000)
     public void ValidateAllFieldsInPerformanceCampaignCreation() {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();

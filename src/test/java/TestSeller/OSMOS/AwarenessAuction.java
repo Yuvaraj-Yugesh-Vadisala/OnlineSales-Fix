@@ -58,7 +58,7 @@ public class AwarenessAuction extends BaseTest {
     @Feature("Awareness Page")
     @Story("This flow belongs Auction Campaign Creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Create a successful auction campaign flow with cpc buying type")
+    @Test(description = "Test: Create a successful auction campaign flow with cpc buying type", timeOut = 20000)
     public void CreateAuctionCampaignWithCPCBuyingType() {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -396,7 +396,7 @@ public class AwarenessAuction extends BaseTest {
     @Feature("Awareness Page")
     @Story("This flow belongs Auction Campaign Creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Creating an auction campaign without filling mandatory fields")
+    @Test(description = "Test: Creating an auction campaign without filling mandatory fields", timeOut = 20000)
     public void ValidateAllFieldsWhileCreatingAuctionCampaignWithCPMBuyingType() {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -896,7 +896,7 @@ public class AwarenessAuction extends BaseTest {
     @Feature("Awareness Page")
     @Story("This flow belongs Auction Campaign Creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Validating media estimator Fields")
+    @Test(description = "Test: Validating media estimator Fields", timeOut = 20000)
     public void ValidateMediaEstimatorTotalBudgetFields() {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();

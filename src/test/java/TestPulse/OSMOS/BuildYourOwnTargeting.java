@@ -51,7 +51,7 @@ public class BuildYourOwnTargeting extends BaseTest {
     @Feature("This flow belongs to Build Your Own Targeting- Key Value Setup")
     @Story("Key Value Setup-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: KeyValue Setup")
+    @Test(timeOut = 10000,description = "Test: KeyValue Setup")
     public void KeyValueSetUp()   {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -86,7 +86,7 @@ public class BuildYourOwnTargeting extends BaseTest {
     @Feature("This flow belongs to Build Your Own Targeting- Key Value Setup")
     @Story("Key Value Setup - Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: KeyValue Setup - Negative")
+    @Test(timeOut = 10000,description = "Test: KeyValue Setup - Negative")
     public void KeyValueSetUpNegativeFlow()   {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -188,7 +188,7 @@ public class BuildYourOwnTargeting extends BaseTest {
     @Feature("This flow belongs to Build Your Own Targeting- Targeting Setup")
     @Story("Targeting Setup-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Targeting Setup")
+    @Test(timeOut = 10000,description = "Test: Targeting Setup")
     public void TargetingSetUp()   {
         utils.RetryOnFailOsmosPulse((() -> {
         SoftAssert softAssert = new SoftAssert();
@@ -222,7 +222,7 @@ public class BuildYourOwnTargeting extends BaseTest {
     @Feature("This flow belongs to Build Your Own Targeting- Targeting Setup")
     @Story("Targeting Setup-Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Targeting Setup-Negative Flow")
+    @Test(timeOut = 10000,description = "Test: Targeting Setup-Negative Flow")
     public void TargetingSetUpNegativeFlow()  {
         utils.RetryOnFailOsmosPulse((() -> {
         SoftAssert softAssert = new SoftAssert();

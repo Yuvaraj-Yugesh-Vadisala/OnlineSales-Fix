@@ -57,7 +57,7 @@ public class AutomatedRules extends BaseTest {
     @Feature("This flow belongs to Wallet Rules Set Up")
     @Story("Wallet Rules Creation- Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Validate all fields while creating new Wallet Rules")
+    @Test(timeOut = 10000,description = "Test: Validate all fields while creating new Wallet Rules")
     public void CreateWalletRules()   {
 //        utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -114,7 +114,7 @@ public class AutomatedRules extends BaseTest {
     @Feature("This flow belongs to Wallet Rules Set Up")
     @Story("Wallet Rules Creation- Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Validate all fields while creating new Wallet Rules")
+    @Test(timeOut = 10000,description = "Test: Validate all fields while creating new Wallet Rules")
     public void ValidateAllFieldsWhileCreatingNewWalletRules() throws InterruptedException {
 //        utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();

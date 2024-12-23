@@ -53,7 +53,7 @@ public class OrdersPulse extends BaseTest {
     @Epic("TVING PULSE - Admin Dashboard")
     @Feature("This flow belongs to All Order Flow")
     @Story("Order Edit - Positive Flow")
-    @Test(description = "Test: Validating comment section in created orders")
+    @Test(timeOut = 10000,description = "Test: Validating comment section in created orders")
     public void AddingCommentToOrder() {
         campaignTemplatePage.RetryOnFailPulse((() ->
         {
@@ -98,7 +98,7 @@ public class OrdersPulse extends BaseTest {
     @Epic("TVING PULSE - Admin Dashboard")
     @Feature("This flow belongs to video creative library")
     @Story("Video reviewing - Happy flow")
-    @Test(description = "Test: Reviewing creative video library media")
+    @Test(timeOut = 10000,description = "Test: Reviewing creative video library media")
     public void ReviewVideoCreativeLibrary() throws InterruptedException {
 //        campaignTemplatePage.RetryOnFailPulse((() -> {
         SoftAssert softAssert = new SoftAssert();
@@ -173,7 +173,7 @@ public class OrdersPulse extends BaseTest {
 //    @Epic("TVING PULSE - Admin Dashboard")
 //    @Feature("This flow belongs to video creative library")
 //    @Story("Video reviewing - Happy flow")
-//    @Test(description = "Test: Reviewing creative video library media")
+//    @Test(timeOut = 10000,description = "Test: Reviewing creative video library media")
 //    public void ReviewImageCreativeLibrary() throws InterruptedException {
 //        campaignTemplatePage.RetryOnFailPulse((() -> {
 //            SoftAssert softAssert = new SoftAssert();
