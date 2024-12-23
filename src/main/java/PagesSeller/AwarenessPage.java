@@ -34,6 +34,8 @@ public class AwarenessPage {
 
     final By BlackLoader = By.xpath("//div[contains(@class,'loader-wrapper black-loader')]");
     final By WhiteLoader = By.xpath("//div[contains(@class,'loader-wrapper white-loader')]");
+    final By ButtonSpinner = By.xpath("//i[contains(@class,'icon-spinner')]");
+
     final By NoOptionSelectedErrorMsg = By.xpath("//div[contains(@class,'pendo-track-import-geo-settings-modal error-msg')]");
     final By NoOptionSelectedErrorMsgWhileExporting = By.xpath("(//div[contains(@class,'error-msg name-error-message')])[2]");
     final By GeoLocationTargeting = By.xpath("//div[contains(@class,'pendo-track-geo-targeting-setting-card')]");
@@ -2935,6 +2937,7 @@ public class AwarenessPage {
     public void ClickOnSaveButton() {
         wait.until(ExpectedConditions.elementToBeClickable(SaveButton));
         driver.findElement(SaveButton).click();
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(ButtonSpinner));
     }
 
     @Step("Validate visibility of notification save popup")

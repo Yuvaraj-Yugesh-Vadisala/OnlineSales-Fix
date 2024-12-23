@@ -164,12 +164,13 @@ public class BuildYourOwnTargeting extends BaseTest {
                     softAssert.fail("User can add values with only spaces");
                 }
                 utils.ClickOnPopUpCloseButton();
+                Thread.sleep(4000);
                 customtargetingpage.ClickOnCreateButton();
                 if (!customtargetingpage.ValidateErrorPopUpForEmptyKeyValue()) {
                     utils.TakeScreenshotOnSoftAssertion("Soft Assertion - User can add key value with empty value field");
                     softAssert.fail("User can add key value with empty value field");
                 }
-//                utils.ClickOnPopUpCloseButton();
+                utils.ClickOnPopUpCloseButton();
 
             } catch (InterruptedException e) {
                 softAssert.fail("Test interrupted unexpectedly: " + e.getMessage());
