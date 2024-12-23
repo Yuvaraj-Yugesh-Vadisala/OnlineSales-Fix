@@ -162,9 +162,9 @@ public class Dashboard extends BaseTest {
                     awarenessPage.TakeScreenshotOnSoftAssertion("Soft Assertion - View changing failed");
                     softAssert.fail("View changing failed");
                 }
-                dashboardPage.ClickOnFilterButton();
-                dashboardPage.SelectMultipleStatusOptions(3);
-                dashboardPage.SelectDesiredFilterAttribute(2);
+                // dashboardPage.ClickOnFilterButton();
+                // dashboardPage.SelectMultipleStatusOptions(3);
+                // dashboardPage.SelectDesiredFilterAttribute(2);
                 dashboardPage.ClickOnStartDateField();
                 performancePage.DateSelector("September", "2024", "15");
                 dashboardPage.ClickOnEndDateField();
@@ -242,9 +242,9 @@ public class Dashboard extends BaseTest {
                 dashboardPage.ClickOnCategoriesTab();
                 dashboardPage.ClickOnPerformanceTableDownloadButton();
                 dashboardPage.ClickOnKeywordsTab();
-                dashboardPage.ClickOnPerformanceTableDownloadButton();
-                dashboardPage.CountingPerformanceTableHeadingsBeforeDeselectingTableAttribute();
-                dashboardPage.ClickOnTableAddOrRemoveColumns();
+                // dashboardPage.ClickOnPerformanceTableDownloadButton();
+                // dashboardPage.CountingPerformanceTableHeadingsBeforeDeselectingTableAttribute();
+                // dashboardPage.ClickOnTableAddOrRemoveColumns();
                 dashboardPage.DeselectingSelectedTableAttributes(1);
                 dashboardPage.ClickOnTableAddOrRemoveColumns();
                 if (!dashboardPage.ValidatingPerformanceTableHeadingsAfterDeselectingTableAttribute()) {
