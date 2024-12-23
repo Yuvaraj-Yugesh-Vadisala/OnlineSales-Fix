@@ -7,6 +7,7 @@ import PagesSeller.PerformancePage;
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
@@ -33,23 +34,26 @@ public class AwarenessAuction extends BaseTest {
         dashboardPage.ClickOnSellerChooseField();
         dashboardPage.EnterDesiredTextToSellerSearchField("Whitakers");
         dashboardPage.SelectDesiredSeller(1);
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting: " + this.getClass().getSimpleName());
-
 
     }
 
     @BeforeMethod
-    public void ResetPage() throws InterruptedException, AWTException {
+    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosSellerUrl);
         if (!Language.equals("en")) {
             awarenessPage.ChangeLanguage();
         }
 
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
+
+    }
+    @AfterMethod
+    public void afterMethod(ITestResult result) {
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
     }
 
     @AfterClass
     public void TearDown() {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished: " + this.getClass().getSimpleName());
 
         getDriver().quit();
     }
