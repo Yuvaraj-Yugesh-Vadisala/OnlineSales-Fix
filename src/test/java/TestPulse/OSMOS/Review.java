@@ -51,8 +51,15 @@ public class Review extends BaseTest {
         getDriver().navigate().refresh();
     }
 
+    public void ResetPage() throws InterruptedException, AWTException {
+        getDriver().navigate().to(OsmosPulseUrl);
+        if (!Language.equals("en")) {
+            utility.ChangeLanguage();
+        }
+    }
+
     @BeforeMethod
-    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
+    public void ResetPage1(ITestResult result) throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosPulseUrl);
         if (!Language.equals("en")) {
             utility.ChangeLanguage();
