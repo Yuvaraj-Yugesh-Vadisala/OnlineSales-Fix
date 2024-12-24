@@ -70,9 +70,9 @@ jobs:
     # - name: Deploy to S3 bucket
     #   run: aws s3 sync allure-report s3://${{ secrets.AWS_PRODUCTION_BUCKET_NAME }}/qa-automation-reports/latest --delete
 
-    - name: Publish Allure report
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: allure-report
-        path: allure-report
+    # - name: Publish Allure report
+    #   if: always()
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: allure-report
+    #     path: allure-report
