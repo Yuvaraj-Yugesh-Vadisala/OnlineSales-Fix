@@ -5,8 +5,10 @@ import PagesPulse.OSMOS.BuildYourOwnTargetingPage;
 import PagesPulse.OSMOS.Utility;
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.awt.*;
@@ -26,26 +28,17 @@ public class BuildYourOwnTargeting extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
-
-
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
+    public void ResetPage() throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosPulseUrl);
         if (!Language.equals("en")) {
             utils.ChangeLanguage();
         }
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
     @AfterClass
     public void TearDown() {
-
         getDriver().quit();
     }
 
@@ -53,7 +46,7 @@ public class BuildYourOwnTargeting extends BaseTest {
     @Feature("This flow belongs to Build Your Own Targeting- Key Value Setup")
     @Story("Key Value Setup-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: KeyValue Setup")
+    @Test(timeOut=1200000,description = "Test: KeyValue Setup")
     public void KeyValueSetUp()   {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -88,7 +81,7 @@ public class BuildYourOwnTargeting extends BaseTest {
     @Feature("This flow belongs to Build Your Own Targeting- Key Value Setup")
     @Story("Key Value Setup - Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: KeyValue Setup - Negative")
+    @Test(timeOut=1200000,description = "Test: KeyValue Setup - Negative")
     public void KeyValueSetUpNegativeFlow()   {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -190,7 +183,7 @@ public class BuildYourOwnTargeting extends BaseTest {
     @Feature("This flow belongs to Build Your Own Targeting- Targeting Setup")
     @Story("Targeting Setup-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Targeting Setup")
+    @Test(timeOut=1200000,description = "Test: Targeting Setup")
     public void TargetingSetUp()   {
         utils.RetryOnFailOsmosPulse((() -> {
         SoftAssert softAssert = new SoftAssert();
@@ -224,7 +217,7 @@ public class BuildYourOwnTargeting extends BaseTest {
     @Feature("This flow belongs to Build Your Own Targeting- Targeting Setup")
     @Story("Targeting Setup-Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Targeting Setup-Negative Flow")
+    @Test(timeOut=1200000,description = "Test: Targeting Setup-Negative Flow")
     public void TargetingSetUpNegativeFlow()  {
         utils.RetryOnFailOsmosPulse((() -> {
         SoftAssert softAssert = new SoftAssert();

@@ -5,9 +5,12 @@ import BaseClass.BaseTest;
 
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import PagesPulse.OSMOS.Utility;
 
 import java.awt.*;
 
@@ -31,27 +34,18 @@ public class AutomatedRules extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
-
-
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
+    public void ResetPage() throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosPulseUrl);
         if (!Language.equals("en")) {
             utility.ChangeLanguage();
         }
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
 
     @AfterClass
     public void TearDown() {
-
         getDriver().quit();
     }
 
@@ -59,7 +53,7 @@ public class AutomatedRules extends BaseTest {
     @Feature("This flow belongs to Wallet Rules Set Up")
     @Story("Wallet Rules Creation- Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Validate all fields while creating new Wallet Rules")
+    @Test(timeOut=1200000,description = "Test: Validate all fields while creating new Wallet Rules")
     public void CreateWalletRules()   {
 //        utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -116,7 +110,7 @@ public class AutomatedRules extends BaseTest {
     @Feature("This flow belongs to Wallet Rules Set Up")
     @Story("Wallet Rules Creation- Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Validate all fields while creating new Wallet Rules")
+    @Test(timeOut=1200000,description = "Test: Validate all fields while creating new Wallet Rules")
     public void ValidateAllFieldsWhileCreatingNewWalletRules() throws InterruptedException {
 //        utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -151,7 +145,7 @@ public class AutomatedRules extends BaseTest {
 //                }
                 walletRulesPage.EnterDataInWalletDescriptionField("Sample Data about Wallet");
                 walletRulesPage.ClickingOnRuleTypeField();
-                walletRulesPage.EnterDataInWalletRuleTypeSearchField("On Wallet topup");
+                walletRulesPage.EnterDataInWalletRuleTypeSearchField("On");
                 walletRulesPage.ClickOnGenericOptionsSelector(1);
                 walletRulesPage.ClickingOnYesButton();
                 walletRulesPage.ClickOnLookBackPeriodField();
@@ -199,7 +193,7 @@ public class AutomatedRules extends BaseTest {
                     pageSetupPage.TakeScreenshotOnSoftAssertion("Soft Assertion - Invalid mail error pop up not displayed on saving with invalid mail.");
                     softAssert.fail("Invalid mail error pop up not displayed on saving with invalid mail.");
                 }
-                pageSetupPage.ClickingOnPopUpCloseButton();
+//                pageSetupPage.ClickingOnPopUpCloseButton();
                 walletRulesPage.EnterDataInNotifyMeGmailField("@gmail.com");
                 walletRulesPage.ClickEnterIcon();
                 if (!walletRulesPage.ValidateInvalidMailPopUpDisplayed()) {

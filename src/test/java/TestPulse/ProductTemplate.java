@@ -6,8 +6,10 @@ import PagesPulse.ProductTemplatePage;
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.awt.*;
@@ -29,19 +31,11 @@ public class ProductTemplate extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
-
-
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
+    public void ResetPage() throws InterruptedException, AWTException {
         getDriver().navigate().to(PulseUrl);
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
 
     @AfterClass
@@ -53,7 +47,7 @@ public class ProductTemplate extends BaseTest {
     @Feature("This flow belongs to Product Template")
     @Story("Product Template Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 6000000,description = "Test: Create new product template")
+    @Test(timeOut=1200000,description = "Test: Create new product template")
     public void CreateNewProductTemplateWithAllOptionalFeatures() {
         campaignTemplatePage.RetryOnFailPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -152,7 +146,7 @@ public class ProductTemplate extends BaseTest {
     @Feature("This flow belongs to Product Template")
     @Story("Product Display Ad Template Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 6000000,description = "Test: Create display ad product template")
+    @Test(timeOut=1200000,description = "Test: Create display ad product template")
     public void CreateDisplayAdProductTemplateWithAllOptionalFeatures() {
         campaignTemplatePage.RetryOnFailPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -253,7 +247,7 @@ public class ProductTemplate extends BaseTest {
     @Feature("This flow belongs to Product Template")
     @Story("Product Template Creation-Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 6000000,description = "Test: Validating all fields while creating product template")
+    @Test(timeOut=1200000,description = "Test: Validating all fields while creating product template")
     public void ValidateAllFieldInProductTemplateCreation() throws InterruptedException {
         campaignTemplatePage.RetryOnFailPulse((() -> {
             SoftAssert softAssert = new SoftAssert();

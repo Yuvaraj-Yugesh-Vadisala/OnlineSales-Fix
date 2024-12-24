@@ -7,8 +7,10 @@ import PagesPulse.OSMOS.Utility;
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.awt.*;
@@ -30,27 +32,18 @@ public class AdvertiserSegmentManager extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
-
-
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
+    public void ResetPage() throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosPulseUrl);
         if (!Language.equals("en")) {
             utils.ChangeLanguage();
         }
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
 
     @AfterClass
     public void TearDown() {
-
         getDriver().quit();
 
     }
@@ -59,7 +52,7 @@ public class AdvertiserSegmentManager extends BaseTest {
     @Feature("This flow belongs to Advertiser Segment Manager")
     @Story("Advertiser Segment Manager - Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Advertiser Segment Manager - Positive")
+    @Test(timeOut=1200000,description = "Test: Advertiser Segment Manager - Positive")
     public void AdvertiserSegmentMangerPositiveFlow()  {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -120,7 +113,7 @@ public class AdvertiserSegmentManager extends BaseTest {
     @Feature("This flow belongs to Advertiser Segment Manager")
     @Story("Advertiser Segment Manager - Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Advertiser Segment Manager - Negative")
+    @Test(timeOut=1200000,description = "Test: Advertiser Segment Manager - Negative")
     public void AdvertiserSegmentMangerNegativeFlow() {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();

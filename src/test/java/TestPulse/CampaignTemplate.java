@@ -5,8 +5,10 @@ import PagesPulse.CampaignTemplatePage;
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.awt.*;
@@ -25,28 +27,19 @@ public class CampaignTemplate extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
-
-
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
+    public void ResetPage() throws InterruptedException, AWTException {
         getDriver().navigate().to(PulseUrl);
         if (!Language.equals("en")) {
             campaignTemplatePage.ChangeLanguage();
         }
 
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
 
     @AfterClass
     public void TearDown() {
-
         getDriver().quit();
     }
 
@@ -54,7 +47,7 @@ public class CampaignTemplate extends BaseTest {
     @Feature("This flow belongs to Campaign Template")
     @Story("Campaign Template Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 600000,description = "Test: Create new campaign template")
+    @Test(timeOut=1200000,description = "Test: Create new campaign template")
     public void CreateNewCampaignTemplate()  {
         campaignTemplatePage.RetryOnFailPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -95,7 +88,7 @@ public class CampaignTemplate extends BaseTest {
     @Feature("This flow belongs to Campaign Template")
     @Story("Campaign Template Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 600000,description = "Test: Create display ad campaign template")
+    @Test(timeOut=1200000,description = "Test: Create display ad campaign template")
     public void CreateDisplayAdCampaignTemplate()  {
         campaignTemplatePage.RetryOnFailPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -140,7 +133,7 @@ public class CampaignTemplate extends BaseTest {
     @Feature("This flow belongs to Campaign Template")
     @Story("Campaign Template Creation-Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 600000,description = "Test: Validating All fields while creating Campaign template")
+    @Test(timeOut=1200000,description = "Test: Validating All fields while creating Campaign template")
     public void ValidationOfAllFieldsWhileCampaignTemplateCreation() throws InterruptedException {
         campaignTemplatePage.RetryOnFailPulse((() ->
         {

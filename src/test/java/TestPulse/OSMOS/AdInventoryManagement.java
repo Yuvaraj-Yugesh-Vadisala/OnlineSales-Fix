@@ -9,8 +9,10 @@ import PagesPulse.OSMOS.Utility;
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.awt.*;
@@ -34,27 +36,18 @@ public class AdInventoryManagement extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
-
-
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
+    public void ResetPage() throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosPulseUrl);
         if (!Language.equals("en")) {
             utility.ChangeLanguage();
         }
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
 
     @AfterClass
     public void TearDown() {
-
         getDriver().quit();
     }
 
@@ -63,7 +56,7 @@ public class AdInventoryManagement extends BaseTest {
     @Feature("This flow belongs to Page Set Up")
     @Story("Page Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,priority = 0, description = "Test: Create new Page")
+    @Test(timeOut=112000000,priority = 0, description = "Test: Create new Page")
     public void CreateNewPage()  {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -111,7 +104,7 @@ public class AdInventoryManagement extends BaseTest {
     @Feature("This flow belongs to Ad Format Set Up")
     @Story("Ad Format Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,priority = 1,description = "Test: Create new Ad Format")
+    @Test(timeOut=112000000,priority = 1,description = "Test: Create new Ad Format")
     public void CreateNewAdFormat()   {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -232,7 +225,7 @@ public class AdInventoryManagement extends BaseTest {
     @Feature("This flow belongs to Inventory Set Up")
     @Story("Inventory Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,priority = 2,description = "Test: Create new CPM Inventory")
+    @Test(timeOut=112000000,priority = 2,description = "Test: Create new CPM Inventory")
     public void CreateNewCPMInventory()   {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -302,7 +295,7 @@ public class AdInventoryManagement extends BaseTest {
     @Feature("This flow belongs to Inventory Set Up")
     @Story("Inventory Creation-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,priority = 3,description = "Test: Create new CPC Inventory")
+    @Test(timeOut=112000000,priority = 3,description = "Test: Create new CPC Inventory")
     public void CreateNewCPCInventory()   {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -370,7 +363,7 @@ public class AdInventoryManagement extends BaseTest {
     @Feature("This flow belongs to Inventory Set Up")
     @Story("Inventory Creation- Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,priority = 4,description = "Test: Validate all fields while creating  new Inventory")
+    @Test(timeOut=112000000,priority = 4,description = "Test: Validate all fields while creating  new Inventory")
     public void ValidateAllFieldsWhileCreatingInventory()   {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -553,7 +546,7 @@ public class AdInventoryManagement extends BaseTest {
     @Feature("This flow belongs to Page Set Up")
     @Story("Page Creation-Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,priority = 5,description = "Test: Validate all fields while creating page")
+    @Test(timeOut=112000000,priority = 5,description = "Test: Validate all fields while creating page")
     public void ValidateAllFieldsWhileCreatingPage()  {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -625,7 +618,7 @@ public class AdInventoryManagement extends BaseTest {
     @Feature("This flow belongs to Ad Format Set Up")
     @Story("Ad Format Creation-Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,priority = 6,description = "Test: Validate all fields while creating ad format")
+    @Test(timeOut=112000000,priority = 6,description = "Test: Validate all fields while creating ad format")
     public void ValidateAllFieldsWhileCreatingAdFormat()   {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();

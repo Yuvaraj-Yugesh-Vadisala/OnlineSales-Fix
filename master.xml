@@ -6,8 +6,19 @@
     </listeners>
     <test verbose="10" preserve-order="true" name="Webapp-Online-Sales-AI" thread-count="6" parallel="classes">
         <classes>
-         
-
+          <class name="TestSeller.OSMOS.Dashboard">
+                <methods>
+                    <include name="DashboardOperations"/>
+                    <include name="AwarenessTableOperations"/>
+                    <include name="PerformanceTableOperations"/>
+                </methods>
+            </class>
+             <class name="TestPulse.OSMOS.Finance">
+                <methods>
+                    <include name="FinanceDashboardOperations"/>
+                    <include name="FinanceAdvertiserManagementOperations"/>
+                </methods>
+            </class>
             <class name="TestSeller.Tving.OrdersDev">
                 <methods>
                     <include name="CreateNewOrderWithAllMandatoryFields"/>
@@ -93,7 +104,7 @@
                     <include name="AdvertiserSegmentMangerNegativeFlow"/>
                 </methods>
             </class>
-            <class name="TestPulse.OSMOS.AdInventoryManagement">
+           <class name="TestPulse.OSMOS.AdInventoryManagement">
                 <methods>
                     <include name="CreateNewPage"/>
                     <include name="ValidateAllFieldsWhileCreatingPage"/>
@@ -125,20 +136,6 @@
             <class name="TestPulse.OSMOS.Review">
                 <methods>
                     <include name="ReviewCreatedCampaign"/>
-                </methods>
-            </class>
-             <class name="TestSeller.OSMOS.Dashboard">
-                <methods>
-                    <include name="DashboardOperations"/>
-                    <include name="AwarenessTableOperations"/>
-                    <include name="PerformanceTableOperations"/>
-                </methods>
-            </class>
-
-                <class name="TestPulse.OSMOS.Finance">
-                <methods>
-                    <include name="FinanceDashboardOperations"/>
-                    <include name="FinanceAdvertiserManagementOperations"/>
                 </methods>
             </class>
         </classes>

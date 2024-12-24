@@ -5,7 +5,6 @@ import PagesSeller.*;
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
 import org.testng.Assert;
-import org.testng.ITestResult;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
@@ -33,22 +32,14 @@ public class Performance extends BaseTest {
         dashboardPage.ClickOnSellerChooseField();
         dashboardPage.EnterDesiredTextToSellerSearchField("Whitakers");
         dashboardPage.SelectDesiredSeller(1);
-
-
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
+    public void ResetPage() throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosSellerUrl);
         if (!Language.equals("en")) {
             awarenessPage.ChangeLanguage();
         }
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
 
     @AfterClass
@@ -60,7 +51,7 @@ public class Performance extends BaseTest {
     @Feature("Performance Page")
     @Story("This flow belongs to search only campaign creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Create a successful search only campaign flow", timeOut = 6000000)
+    @Test(timeOut=1200000,description = "Test: Create a successful search only campaign flow")
     public void CreateSearchOnlyCampaign() {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -138,7 +129,7 @@ public class Performance extends BaseTest {
     @Feature("Performance Page")
     @Story("This flow belongs to smart campaign creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Create a successful smart campaign with all optional features", timeOut = 6000000)
+    @Test(timeOut=1200000,description = "Test: Create a successful smart campaign with all optional features")
     public void CreateSmartCampaignWithAllOptionalFeatures() {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -360,7 +351,7 @@ public class Performance extends BaseTest {
     @Feature("Performance Page")
     @Story("This flow belongs to smart campaign creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Validation of all fields while creating performance campaign", timeOut = 6000000)
+    @Test(timeOut=1200000,description = "Test: Validation of all fields while creating performance campaign")
     public void ValidateAllFieldsInPerformanceCampaignCreation() {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -566,7 +557,7 @@ public class Performance extends BaseTest {
 //    @Feature("Performance Page")
 //    @Story("This flow belongs to create campaign")
 //    @Severity(SeverityLevel.CRITICAL)
-//    @Test(description = "Test: Validate reset to ideal settings confirmation ")
+//    @Test(timeOut=1200000,description = "Test: Validate reset to ideal settings confirmation ")
 //    public void ValidateResetToIdealSettingsConfirmation() {
 //        performancePage.ClickOnCreateCampaignButton();
 //        performancePage.ClickNextButton();

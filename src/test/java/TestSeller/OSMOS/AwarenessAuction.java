@@ -7,7 +7,6 @@ import PagesSeller.PerformancePage;
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
 import org.testng.Assert;
-import org.testng.ITestResult;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
@@ -34,27 +33,19 @@ public class AwarenessAuction extends BaseTest {
         dashboardPage.ClickOnSellerChooseField();
         dashboardPage.EnterDesiredTextToSellerSearchField("Whitakers");
         dashboardPage.SelectDesiredSeller(1);
-
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
+    public void ResetPage() throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosSellerUrl);
         if (!Language.equals("en")) {
             awarenessPage.ChangeLanguage();
         }
 
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
 
     @AfterClass
     public void TearDown() {
-
         getDriver().quit();
     }
 
@@ -62,7 +53,7 @@ public class AwarenessAuction extends BaseTest {
     @Feature("Awareness Page")
     @Story("This flow belongs Auction Campaign Creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Create a successful auction campaign flow with cpc buying type", timeOut = 1200000)
+    @Test(timeOut=1200000,description = "Test: Create a successful auction campaign flow with cpc buying type")
     public void CreateAuctionCampaignWithCPCBuyingType() {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -400,7 +391,7 @@ public class AwarenessAuction extends BaseTest {
     @Feature("Awareness Page")
     @Story("This flow belongs Auction Campaign Creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Creating an auction campaign without filling mandatory fields", timeOut = 1200000)
+    @Test(timeOut=1200000,description = "Test: Creating an auction campaign without filling mandatory fields")
     public void ValidateAllFieldsWhileCreatingAuctionCampaignWithCPMBuyingType() {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -900,7 +891,7 @@ public class AwarenessAuction extends BaseTest {
     @Feature("Awareness Page")
     @Story("This flow belongs Auction Campaign Creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Validating media estimator Fields", timeOut = 1200000)
+    @Test(timeOut=1200000,description = "Test: Validating media estimator Fields")
     public void ValidateMediaEstimatorTotalBudgetFields() {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();

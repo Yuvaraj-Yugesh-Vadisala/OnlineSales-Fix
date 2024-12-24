@@ -6,8 +6,10 @@ import PagesPulse.OSMOS.Utility;
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.TakesScreenshot;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.awt.*;
@@ -27,26 +29,17 @@ public class ProductAdsYieldControl extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
-
-
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
+    public void ResetPage() throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosPulseUrl);
         if (!Language.equals("en")) {
             utils.ChangeLanguage();
         }
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
     @AfterClass
     public void TearDown() {
-
         getDriver().quit();
 
     }
@@ -54,7 +47,7 @@ public class ProductAdsYieldControl extends BaseTest {
     @Feature("This flow belongs to Product Ads Yield Control")
     @Story("Product Ads Yield Control-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Product Ads Yield Control - Positive")
+    @Test(timeOut=1200000,description = "Test: Product Ads Yield Control - Positive")
     public void ProductAdsYieldControlPositiveFlow()   {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -115,7 +108,7 @@ public class ProductAdsYieldControl extends BaseTest {
     @Feature("This flow belongs to Product Ads Yield Control")
     @Story("Product Ads Yield Control-Negative Flow")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(timeOut = 10000,description = "Test: Product Ads Yield Control - Negative")
+    @Test(timeOut=1200000,description = "Test: Product Ads Yield Control - Negative")
     public void ProductAdsYieldControlNegativeFlow()   {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();

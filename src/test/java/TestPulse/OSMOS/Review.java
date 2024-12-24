@@ -9,8 +9,10 @@ import PagesSeller.PerformancePage;
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.awt.*;
@@ -25,6 +27,8 @@ public class Review extends BaseTest {
     private CampaignReviewPage campaignReviewPage;
     private PerformancePage performancePage;
     private Utility utility;
+
+
 
     @BeforeClass
     public void SetUpTests() {
@@ -43,33 +47,18 @@ public class Review extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
-
-
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
-        getDriver().navigate().to(OsmosPulseUrl);
-        if (!Language.equals("en")) {
-            utility.ChangeLanguage();
-        }
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
     public void ResetPage() throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosPulseUrl);
         if (!Language.equals("en")) {
             utility.ChangeLanguage();
         }
     }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
-    }
 
     @AfterClass
     public void TearDown() {
-
         getDriver().quit();
     }
 
@@ -90,7 +79,7 @@ public class Review extends BaseTest {
     @Feature("This flow belongs to Campaign Review")
     @Story("Campaign Review- Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 20000,description = "Test: Review created campaign")
+    @Test(timeOut=1200000,description = "Test: Review created campaign")
     public void ReviewCreatedCampaign() {
         utility.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();

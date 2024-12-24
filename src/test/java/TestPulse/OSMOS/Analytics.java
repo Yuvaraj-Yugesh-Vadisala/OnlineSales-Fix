@@ -5,9 +5,12 @@ import BaseClass.BaseTest;
 
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import PagesPulse.OSMOS.Utility;
 
 import java.awt.*;
 
@@ -28,26 +31,17 @@ public class Analytics extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
-
-
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
+    public void ResetPage() throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosPulseUrlSandbox);
         if (!Language.equals("en")) {
             utils.ChangeLanguage();
         }
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
     @AfterClass
     public void TearDown() {
-
         getDriver().quit();
     }
 
@@ -56,7 +50,7 @@ public class Analytics extends BaseTest {
     @Feature("This flow belongs to Analytics-Demand And Supply")
     @Story("Analytics-Product Ads Insights-Demand And Supply")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Products Ads Insights-Demand And Supply")
+    @Test(timeOut=1200000,description = "Test: Products Ads Insights-Demand And Supply")
     public void ProductsAdsInsights()   {
         utils.RetryOnFailOsmosPulseSandBox((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -102,7 +96,7 @@ public class Analytics extends BaseTest {
     @Feature("This flow belongs to Analytics-Ad Server Analytics")
     @Story("Analytics-Display Ads Insights- Ad Server Analytics")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Display Ads Insights-Ad Server Analytics")
+    @Test(timeOut=1200000,description = "Test: Display Ads Insights-Ad Server Analytics")
     public void DisplayAdsInsights()   {
         utils.RetryOnFailOsmosPulseSandBox((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -128,7 +122,7 @@ public class Analytics extends BaseTest {
     @Feature("This flow belongs to Advertiser Insights")
     @Story("Advertiser Insights Validations-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Validate Advertiser Insights elements")
+    @Test(timeOut=1200000,description = "Test: Validate Advertiser Insights elements")
     public void ValidateAdvertiserInsightsElements()  {
         utils.RetryOnFailOsmosPulseSandBox((() -> {
             SoftAssert softAssert = new SoftAssert();

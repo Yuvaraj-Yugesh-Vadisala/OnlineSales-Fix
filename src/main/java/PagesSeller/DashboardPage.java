@@ -562,7 +562,7 @@ public class DashboardPage {
     public void ClickOnInventoryTab() throws InterruptedException {
         Thread.sleep(2500);
         WebDriverWait ExtensiveWait =new WebDriverWait(driver,Duration.ofSeconds(90));
-        ExtensiveWait.until(ExpectedConditions.visibilityOfElementLocated(FirstRowCampaignName));
+//        ExtensiveWait.until(ExpectedConditions.visibilityOfElementLocated(FirstRowCampaignName));
         WebElement element =driver.findElement(InventoryTab);
         Actions action = new Actions(driver);
         action.moveToElement(element).perform();

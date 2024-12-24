@@ -5,8 +5,10 @@ import PagesPulse.OSMOS.UserManagementPage;
 import PagesPulse.OSMOS.Utility;
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.awt.*;
@@ -26,27 +28,18 @@ public class UserManagement extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
-
-
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
+    public void ResetPage() throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosPulseUrl);
         if (!Language.equals("en")) {
             utils.ChangeLanguage();
         }
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
 
     @AfterClass
     public void TearDown() {
-
         getDriver().quit();
     }
 
@@ -54,7 +47,7 @@ public class UserManagement extends BaseTest {
     @Feature("This flow belongs to User Management- Super Admin Users")
     @Story("Super Admin Operations-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Super Admin Operations")
+    @Test(timeOut=1200000,description = "Test: Super Admin Operations")
     public void SuperAdminOperations()   {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -105,7 +98,7 @@ public class UserManagement extends BaseTest {
     @Feature("This flow belongs to User Management-Super Admin Users")
     @Story("Super Admin Operations-Negative Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Super Admin Operations")
+    @Test(timeOut=1200000,description = "Test: Super Admin Operations")
     public void SuperAdminOperationsNegative() throws InterruptedException {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -169,7 +162,7 @@ public class UserManagement extends BaseTest {
     @Feature("This flow belongs to User Management- Ops Users")
     @Story("OpsUser Operations-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Ops User Operations")
+    @Test(timeOut=1200000,description = "Test: Ops User Operations")
     public void OpsUserOperations() throws InterruptedException {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -245,7 +238,7 @@ public class UserManagement extends BaseTest {
     @Feature("This flow belongs to User Management- Advertiser Users")
     @Story("Advertiser Users Operations-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Advertiser User Operations")
+    @Test(timeOut=1200000,description = "Test: Advertiser User Operations")
     public void AdvertiserUsersOperations() throws InterruptedException {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();

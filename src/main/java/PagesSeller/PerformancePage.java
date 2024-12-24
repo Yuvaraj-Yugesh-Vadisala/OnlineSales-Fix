@@ -373,7 +373,8 @@ public class PerformancePage {
         wait.until(ExpectedConditions.elementToBeClickable(NextStepCampaignButton));
         driver.findElement(NextStepCampaignButton).click();
     }
-
+    final By BlackLoader = By.xpath("//div[contains(@class,'loader-wrapper black-loader')]");
+    final By WhiteLoader = By.xpath("//div[contains(@class,'loader-wrapper white-loader')]");
     @Step("Entering value to the Daily Budget Field")
     public void EnterDailyBudgetPrice(String DailyBudget) {
         wait.until(ExpectedConditions.elementToBeClickable(DailyBudgetInactiveField));
@@ -381,6 +382,7 @@ public class PerformancePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(DailyBudgetActiveField));
         driver.findElement(DailyBudgetActiveField).sendKeys(controlOrCommandKey + "a");
         driver.findElement(DailyBudgetActiveField).sendKeys(DailyBudget);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(WhiteLoader));
 
     }
 

@@ -7,8 +7,10 @@ import PagesSeller.PerformancePage;
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.awt.*;
@@ -36,18 +38,12 @@ public class AwarenessGuaranteed extends BaseTest {
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
+    public void ResetPage() throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosSellerUrl);
         if (!Language.equals("en")) {
             awarenessPage.ChangeLanguage();
         }
 
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
 
     @AfterClass
@@ -59,7 +55,7 @@ public class AwarenessGuaranteed extends BaseTest {
     @Feature("Awareness Page")
     @Story("This flow belongs to Guaranteed Campaign Creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Create a successful guaranteed campaign cost per impressions flow", timeOut = 1200000)
+    @Test(timeOut = 1200000, description = "Test: Create a successful guaranteed campaign cost per impressions flow")
     public void CreateGuaranteedCampaignsCostPerImpressionsWithAllOptionalFeatures() {
         performancePage.RetryOnFailOSMOSSeller((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -192,13 +188,14 @@ public class AwarenessGuaranteed extends BaseTest {
     @Feature("Awareness Page")
     @Story("This flow belongs to Guaranteed Campaign Creation")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Test: Validating all features in guaranteed campaign creation", timeOut = 1200000)
+    @Test(timeOut = 1200000, description = "Test: Validating all features in guaranteed campaign creation")
     public void ValidateAllFeaturesInGuaranteedCampaignCreation() {
         performancePage.RetryOnFailOSMOSSeller(() -> {
             SoftAssert softAssert = new SoftAssert();
             try {
                 awarenessPage.ClickingOnAwarenessDashBoard();
                 awarenessPage.ClickOnCreateCampaignButton();
+                Thread.sleep(1500);
                 awarenessPage.ClickingOnGuaranteedCampaignsImpressions();
                 performancePage.ClickingNextStepButton();
                 Thread.sleep(2000);
@@ -575,7 +572,7 @@ public class AwarenessGuaranteed extends BaseTest {
     @Feature("Awareness Page")
     @Story("This flow belongs to Guaranteed Campaign Creation")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Test: Create a successful guaranteed campaign cost per Day flow", timeOut = 1200000)
+    @Test(timeOut = 1200000, description = "Test: Create a successful guaranteed campaign cost per Day flow")
     public void CreateGuaranteedCampaignsCostPerDay() {
         performancePage.RetryOnFailOSMOSSeller((() ->
         {
@@ -583,6 +580,7 @@ public class AwarenessGuaranteed extends BaseTest {
             try {
                 awarenessPage.ClickingOnAwarenessDashBoard();
                 awarenessPage.ClickOnCreateCampaignButton();
+                Thread.sleep(1500);
                 awarenessPage.ClickingOnGuaranteedCampaignsDay();
                 performancePage.ClickingNextStepButton();
 //                String DefaultCampaignName = awarenessPage.RenameCampaignName();

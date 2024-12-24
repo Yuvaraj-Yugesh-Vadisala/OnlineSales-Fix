@@ -52,7 +52,7 @@ public class WalletRulesPage {
     final By RuleTypeField =By.xpath("(//div[contains(@class,'form-component-wrapper')]/descendant::input)[4]");
     final By ActionsDescriptionFieldEmptyErrorMessage = By.xpath("(//div[contains(@class,'pendo-track-filter-sub-component-wrapper')]/descendant::div[contains(@class,'pendo-track-field-empty-error')])[2]");
     final By ActionsValueFieldEmptyErrorMessage = By.xpath("(//div[contains(@class,'pendo-track-filter-sub-component-wrapper')]/descendant::div[contains(@class,'pendo-track-field-empty-error')])[1]");
-    final By WalletInvalidMailPopUp = By.xpath("//div[contains(@class,'Toastify__toast-theme--colored Toastify__toast--error')]");
+    final By WalletInvalidMailPopUp = By.xpath("//div[contains(@class,'pendo-event-tracker-common-form-component-notify-me')]/descendant::div[contains(@class,'name-error-message')]");
     final By SavedMailRemoveIcon = By.xpath("//i[contains(@class,'remove-pill icon icon-close1')]");
     final By EmptyMailEmptyErrorMessage = By.xpath("(//div[contains(@class,'notifyMe-form-wrapper')]/descendant::div[contains(@class,'error-msg name-error-message')])[1]");
     final By SavedTagData = By.xpath("//div[contains(@class,'tab-input-field-form')]/span");
@@ -253,9 +253,9 @@ public class WalletRulesPage {
 
     @Step("Entering data into the notify me search field ")
     public void EnterDataInNotifyMeSearchField(String Data) {
-        WebElement element = driver.findElement(By.xpath("//div[contains(@class,'-internal-user-only')]/descendant::span[contains(@class,'os-toggle-switch-round')]"));
-        Actions action = new Actions(driver);
-        action.moveToElement(element).perform();
+//        WebElement element = driver.findElement(By.xpath("//div[contains(@class,'-internal-user-only')]/descendant::span[contains(@class,'os-toggle-switch-round')]"));
+//        Actions action = new Actions(driver);
+//        action.moveToElement(element).perform();
         wait.until(ExpectedConditions.elementToBeClickable(NotifyMeSearchField));
         driver.findElement(NotifyMeSearchField).click();
         driver.findElement(NotifyMeSearchField).sendKeys(controlOrCommandKey + "a");
@@ -423,7 +423,7 @@ public class WalletRulesPage {
 
     @Step("Clicking on saved mail remove icon")
     public void ClickingOnSavedMailRemoveIcon() {
-        WebElement element = driver.findElement(By.xpath("//div[contains(@class,'-internal-user-only')]/descendant::span[contains(@class,'os-toggle-switch-round')]"));
+        WebElement element = driver.findElement(SavedMailRemoveIcon);
         Actions action = new Actions(driver);
         action.moveToElement(element).perform();
         wait.until(ExpectedConditions.elementToBeClickable(SavedMailRemoveIcon));

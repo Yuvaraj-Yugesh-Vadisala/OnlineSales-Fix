@@ -7,9 +7,12 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.awt.*;
@@ -18,6 +21,7 @@ public class OrdersDev extends BaseTest {
 
     private OrdersPage ordersPage;
     private ProductTemplatePage productTemplatePage;
+
 
     @BeforeClass
     public void SetUpTests() {
@@ -33,14 +37,11 @@ public class OrdersDev extends BaseTest {
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) {
+    public void ResetPage() throws InterruptedException, AWTException {
         getDriver().navigate().refresh();
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
+        if (!Language.equals("en")) {
+            productTemplatePage.ChangeLanguage();
+        }
     }
 
 
@@ -56,6 +57,7 @@ public class OrdersDev extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
+
     }
 
     public void RedirectToDev() {
@@ -70,14 +72,11 @@ public class OrdersDev extends BaseTest {
     @Epic("TVING Dev - Seller Dashboard")
     @Feature("This flow belongs to Order Creation flow")
     @Story("Order Creation - Positive Flow")
-    @Test(description = "Test: Creation of order using all mandatory features", priority = 1 , timeOut = 1200000)
+    @Test(timeOut=1200000,description = "Test: Creation of order using all mandatory features", priority = 1)
     public void CreateNewOrderWithAllMandatoryFields() {
         ordersPage.RetryOnFailTvingSeller((() -> {
         SoftAssert softAssert = new SoftAssert();
         try {
-            if (!Language.equals("en")) {
-                productTemplatePage.ChangeLanguage();
-            }
             ordersPage.ClickOnDevOrdersButton();
             ordersPage.ClickOnSellerSelectAdAccountField();
             ordersPage.ClickOnSelectAdAccountSearchIcon();
@@ -98,7 +97,7 @@ public class OrdersDev extends BaseTest {
             ordersPage.ClickOnSubscriptionCategoryField();
             ordersPage.SelectingDesiredOptionFromCustomCategoryDropDown(1);
             ordersPage.ClickOnCreateOrderBasicInfoSaveButton();
-            ordersPage.EnterDataInOrderCostField("1200000");
+            ordersPage.EnterDataInOrderCostField("20000");
             ordersPage.ClickOnCreateOrderAddTemplateButton();
             ordersPage.EnterDataInAddTemplateSearchField("%%%##");
             ordersPage.SelectingDesiredTemplateRadioButtonFromTable(2);
@@ -677,7 +676,7 @@ public class OrdersDev extends BaseTest {
                 softAssert.fail("Order Approved Success Pop-Up was not displayed.");
             }
             ordersPage.ClickOnPopupCloseButton();
-        } catch (InterruptedException | AWTException e) {
+        } catch (InterruptedException e) {
             softAssert.fail("Test interrupted unexpectedly: " + e.getMessage());
         }
         softAssert.assertAll();
@@ -688,14 +687,11 @@ public class OrdersDev extends BaseTest {
     @Epic("TVING Dev - Seller Dashboard")
     @Feature("This flow belongs to All Order Flow")
     @Story("Order Creation - Negative Flow")
-    @Test(description = "Test: Validating all fields in order creation", priority = 0, timeOut = 1200000)
+    @Test(timeOut=1200000,description = "Test: Validating all fields in order creation", priority = 0)
     public void ValidateAllFieldsInOrderCreation() {
         ordersPage.RetryOnFailTvingSeller((() -> {
             SoftAssert softAssert = new SoftAssert();
             try {
-                if (!Language.equals("en")) {
-                    productTemplatePage.ChangeLanguage();
-                }
                 Thread.sleep(2000);
                 ordersPage.ClickOnDevOrdersButton();
                 ordersPage.ClickOnSellerSelectAdAccountField();
@@ -1180,8 +1176,6 @@ public class OrdersDev extends BaseTest {
                 ordersPage.ClickOnSubmitForReviewButton();
             } catch (InterruptedException e) {
                 softAssert.fail("Test interrupted unexpectedly: " + e.getMessage());
-            } catch (AWTException e) {
-                throw new RuntimeException(e);
             }
             softAssert.assertAll();
         }));

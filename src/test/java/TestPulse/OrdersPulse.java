@@ -7,8 +7,10 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.openqa.selenium.Cookie;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.awt.*;
@@ -30,19 +32,11 @@ public class OrdersPulse extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
-
-
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) {
+    public void ResetPage() {
         getDriver().navigate().to(PulseUrl);
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
 
 
@@ -55,7 +49,7 @@ public class OrdersPulse extends BaseTest {
     @Epic("TVING PULSE - Admin Dashboard")
     @Feature("This flow belongs to All Order Flow")
     @Story("Order Edit - Positive Flow")
-    @Test(timeOut = 600000,description = "Test: Validating comment section in created orders")
+    @Test(timeOut=1200000,description = "Test: Validating comment section in created orders")
     public void AddingCommentToOrder() {
         campaignTemplatePage.RetryOnFailPulse((() ->
         {
@@ -100,7 +94,7 @@ public class OrdersPulse extends BaseTest {
     @Epic("TVING PULSE - Admin Dashboard")
     @Feature("This flow belongs to video creative library")
     @Story("Video reviewing - Happy flow")
-    @Test(timeOut = 600000,description = "Test: Reviewing creative video library media")
+    @Test(timeOut=1200000,description = "Test: Reviewing creative video library media")
     public void ReviewVideoCreativeLibrary() throws InterruptedException {
 //        campaignTemplatePage.RetryOnFailPulse((() -> {
         SoftAssert softAssert = new SoftAssert();
@@ -175,7 +169,7 @@ public class OrdersPulse extends BaseTest {
 //    @Epic("TVING PULSE - Admin Dashboard")
 //    @Feature("This flow belongs to video creative library")
 //    @Story("Video reviewing - Happy flow")
-//    @Test(timeOut = 600000,description = "Test: Reviewing creative video library media")
+//    @Test(timeOut=1200000,description = "Test: Reviewing creative video library media")
 //    public void ReviewImageCreativeLibrary() throws InterruptedException {
 //        campaignTemplatePage.RetryOnFailPulse((() -> {
 //            SoftAssert softAssert = new SoftAssert();

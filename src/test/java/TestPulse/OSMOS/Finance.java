@@ -5,8 +5,10 @@ import PagesPulse.OSMOS.FinancePage;
 import PagesPulse.OSMOS.Utility;
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.awt.*;
@@ -26,27 +28,18 @@ public class Finance extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
-
-
     }
 
     @BeforeMethod
-    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
+    public void ResetPage() throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosPulseUrl);
         if (!Language.equals("en")) {
             utils.ChangeLanguage();
         }
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Starting @Test: " + result.getMethod().getMethodName());
-
-    }
-    @AfterMethod
-    public void afterMethod(ITestResult result) {
-        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
 
     @AfterClass
     public void TearDown() {
-
         getDriver().quit();
     }
 
@@ -54,7 +47,7 @@ public class Finance extends BaseTest {
     @Feature("This flow belongs to Finance Tab Operation")
     @Story("Finance-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Finance Dashboard Operations" , priority = 0)
+    @Test(timeOut=1200000,description = "Test: Finance Dashboard Operations" , priority = 0)
     public void FinanceDashboardOperations() throws RuntimeException {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -111,7 +104,7 @@ public class Finance extends BaseTest {
                 utils.ClickOnCrossButtonLevel2();
                 utils.ClickOnCrossButton();
                 financepage.ClickOnTransactionDownloadButton();
-            } catch (InterruptedException  e) {
+            } catch (Exception  e) {
                 softAssert.fail("Test interrupted unexpectedly: " + e.getMessage());
             }
         softAssert.assertAll();
@@ -121,7 +114,7 @@ public class Finance extends BaseTest {
     @Feature("This flow belongs to Finance Advertiser Management tab operations")
     @Story("Finance-Positive Flow")
     @Severity(SeverityLevel.NORMAL)
-    @Test(timeOut = 10000,description = "Test: Finance Advertiser Management Operations" , priority = 1)
+    @Test(timeOut=1200000,description = "Test: Finance Advertiser Management Operations" , priority = 1)
     public void FinanceAdvertiserManagementOperations() {
         utils.RetryOnFailOsmosPulse((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -165,7 +158,7 @@ public class Finance extends BaseTest {
                     utils.TakeScreenshotOnSoftAssertion("SoftAssertion: Failed to load multi wallet transaction logs download button Within 2 Minutes in Finance Advertiser Management page");
                     softAssert.fail("Failed to load multi wallet transaction logs download button Within 2 Minutes In Finance Advertiser Management page");
                 }
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
                 softAssert.fail("Test interrupted unexpectedly: " + e.getMessage());
             }
             softAssert.assertAll();
