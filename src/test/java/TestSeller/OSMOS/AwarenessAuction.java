@@ -7,6 +7,7 @@ import PagesSeller.PerformancePage;
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
@@ -36,12 +37,18 @@ public class AwarenessAuction extends BaseTest {
     }
 
     @BeforeMethod
-    public void ResetPage() throws InterruptedException, AWTException {
+    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosSellerUrl);
         if (!Language.equals("en")) {
             awarenessPage.ChangeLanguage();
         }
 
+         System.out.println("Thread ID: " + Thread.currentThread().getId()+ " - Started @Test: " + result.getMethod().getMethodName());
+    }
+
+    @AfterMethod
+    public void afterMethod(ITestResult result) {
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
 
     @AfterClass

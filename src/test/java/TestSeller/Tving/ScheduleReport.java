@@ -8,7 +8,9 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.openqa.selenium.Cookie;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -23,7 +25,6 @@ public class ScheduleReport extends BaseTest {
     private ProductTemplatePage productTemplatePage;
 
 
-
     @BeforeClass
     public void SetUpTests() {
         super.Setup();
@@ -36,16 +37,24 @@ public class ScheduleReport extends BaseTest {
         getDriver().manage().addCookie(UAToken);
         getDriver().manage().addCookie(Ubid);
         getDriver().navigate().refresh();
+
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Started: " + this.getClass().getSimpleName());
+
     }
 
     @BeforeMethod
-    public void ResetPage() {
+    public void ResetPage(ITestResult result) {
+
         getDriver().navigate().to(TvingSellerUrl);
+
 //        Cookie UAToken = new Cookie("UA_TOKEN", "f968ddd03b493e94f7c70fa14e5c43d4");
 //        Cookie Ubid = new Cookie("ubid", "unique12345");
 //        getDriver().manage().addCookie(UAToken);
 //        getDriver().manage().addCookie(Ubid);
 //        getDriver().navigate().refresh();
+        System.out.println("Thread ID: " + Thread.currentThread().getId()
+                + " - Starting @Test: " + result.getMethod().getMethodName());
+
     }
 
     @AfterClass
@@ -53,10 +62,18 @@ public class ScheduleReport extends BaseTest {
         getDriver().quit();
     }
 
+    @AfterMethod
+    public void afterMethod(ITestResult result) {
+        // Log the name of the test method that has finished running
+        System.out.println("Thread ID: " + Thread.currentThread().getId()
+                + " - Finished @Test: " + result.getMethod().getMethodName());
+    }
+
+
     @Epic("TVING - Seller Dashboard")
     @Feature("This flow belongs to Scheduling Of Report")
     @Story("Schedule Report - Positive Flow")
-    @Test(timeOut=1200000,description = "Test: Successful Scheduling of report with all mandatory fields")
+    @Test(description = "Test: Successful Scheduling of report with all mandatory fields", timeOut = 6000)
     public void SuccessfullyScheduleReports()  {
         ordersPage.RetryOnFailTvingSeller((() -> {
             SoftAssert softAssert = new SoftAssert();
@@ -175,8 +192,8 @@ public class ScheduleReport extends BaseTest {
     @Epic("TVING - Seller Dashboard")
     @Feature("This flow belongs to Scheduling Of Report")
     @Story("Schedule Report - Negative Flow")
-    @Test(timeOut=1200000,description = "Test: Scheduling of report with negative aspect")
-    public void ScheduleReportsWithNegativeAspect() throws InterruptedException {
+    @Test(description = "Test: Scheduling of report with negative aspect" , timeOut = 6000)
+    public void ScheduleReportsWithNegativeAspect()   {
         ordersPage.RetryOnFailTvingSeller((() ->
         {
             SoftAssert softAssert = new SoftAssert();

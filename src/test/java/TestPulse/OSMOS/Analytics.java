@@ -5,12 +5,13 @@ import BaseClass.BaseTest;
 
 import io.qameta.allure.*;
 import org.openqa.selenium.Cookie;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import PagesPulse.OSMOS.Utility;
 
 import java.awt.*;
 
@@ -34,11 +35,17 @@ public class Analytics extends BaseTest {
     }
 
     @BeforeMethod
-    public void ResetPage() throws InterruptedException, AWTException {
+    public void ResetPage(ITestResult result) throws InterruptedException, AWTException {
         getDriver().navigate().to(OsmosPulseUrlSandbox);
         if (!Language.equals("en")) {
             utils.ChangeLanguage();
         }
+        System.out.println("Thread ID: " + Thread.currentThread().getId()+ " - Started @Test: " + result.getMethod().getMethodName());
+    }
+
+    @AfterMethod
+    public void afterMethod(ITestResult result) {
+        System.out.println("Thread ID: " + Thread.currentThread().getId() + " - Finished @Test: " + result.getMethod().getMethodName());
     }
     @AfterClass
     public void TearDown() {
